@@ -1,0 +1,9 @@
+Diagnosis/**
+Binaries/**
+Temp/**
+*.set
+**.ofs
+Logical/Libraries/**.a
+*.isopen
+*.mpl
+*.zip

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gTrackingPathConveyor_2" Type="trackingpath" Description="Tracking Path with moving objects">
+    <Selector ID="Type">
+      <Selector ID="MotionSource" Value="Axis">
+        <Property ID="AxisRef" Value="AxConveyor_2" />
+        <Selector ID="AxisUsage">
+          <Selector ID="CommandConsideration" Value="SupportBasicCommands" />
+        </Selector>
+      </Selector>
+    </Selector>
+    <Selector ID="SceneViewerObject">
+      <Selector ID="VisualRepresentation" Value="Conveyor belt">
+        <Group ID="Dimensions">
+          <Property ID="Length" Value="3000" />
+          <Property ID="Width" Value="300" />
+          <Property ID="Height" Value="1" />
+        </Group>
+        <Group ID="Translation">
+          <Property ID="Y" Value="-150" />
+          <Property ID="Z" Value="-50" />
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+  <Element ID="gTrackingPathConveyor_1" Type="trackingpath" Description="Tracking Path with moving objects">
+    <Selector ID="Type">
+      <Selector ID="MotionSource" Value="Axis">
+        <Property ID="AxisRef" Value="AxConveyor_1" />
+        <Selector ID="AxisUsage">
+          <Selector ID="CommandConsideration" Value="SupportBasicCommands" />
+        </Selector>
+      </Selector>
+    </Selector>
+    <Selector ID="SceneViewerObject">
+      <Selector ID="VisualRepresentation" Value="Conveyor belt">
+        <Group ID="Dimensions">
+          <Property ID="Length" Value="3000" />
+          <Property ID="Width" Value="300" />
+          <Property ID="Height" Value="1" />
+        </Group>
+        <Group ID="Translation">
+          <Property ID="Y" Value="-150" />
+          <Property ID="Z" Value="-50" />
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

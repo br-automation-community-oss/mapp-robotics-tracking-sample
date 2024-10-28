@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="6.0"?>
+<OpcUaSource FileVersion="10">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Administrators" Access="0x10E5" />
+        <ACE RoleName="Everyone" Access="0x10A5" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases>
+      <EURanges Id="2" AclInherit="0" />
+      <EURanges Id="5" AclInherit="0" />
+    </EURangesAliases>
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="1" UnitId="0" AclInherit="0" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <Module Name="&lt;Default&gt;">
+    <GlobalVariables Name="Global Variables">
+      <Variable Name="ControlPanel">
+        <Variable Name="Input">
+          <Variable Name="StartMultipick" />
+        </Variable>
+      </Variable>
+    </GlobalVariables>
+    <Task Name="APP_Convey">
+      <Variable Name="MpAxConveyor">
+        <Variable Name="Position" />
+      </Variable>
+      <Variable Name="ProductsPosition" RecursiveEnable="2" />
+    </Task>
+    <Task Name="APP_Robot1">
+      <Variable Name="IPMonitor">
+        <Variable Name="NcblockL2" />
+        <Variable Name="NcblockL1" />
+        <Variable Name="Ncblock" />
+        <Variable Name="NcblockN1" />
+        <Variable Name="NcblockN2" />
+      </Variable>
+      <Variable Name="MpDelta4Axis_X">
+        <Variable Name="X" />
+        <Variable Name="Y" />
+        <Variable Name="Z" />
+        <Variable Name="C" />
+        <Variable Name="PathVelocity" />
+        <Variable Name="Info">
+          <Variable Name="JointAxisPosition" RecursiveEnable="2" />
+          <Variable Name="Program">
+            <Variable Name="ProgramMonitor">
+              <Variable Name="LineNumber" />
+              <Variable Name="BlockMonitor" RecursiveEnable="2" />
+            </Variable>
+          </Variable>
+        </Variable>
+      </Variable>
+      <Variable Name="MC_BR_ConditionalStop_0">
+        <Variable Name="Activated" />
+      </Variable>
+      <Variable Name="MultigripperClosedPos1" />
+      <Variable Name="MultigripperClosedPos2" />
+      <Variable Name="GripperClosed" />
+    </Task>
+    <Task Name="APP_Conve1">
+      <Variable Name="McCfgAxConveyor" RecursiveEnable="2" />
+      <Variable Name="ProductsPosition" RecursiveEnable="2" />
+    </Task>
+  </Module>
+</OpcUaSource>
