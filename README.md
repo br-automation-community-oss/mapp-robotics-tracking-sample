@@ -20,4 +20,4 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 * Download project and open with AS
 * Enable simulation, build and transfer the project. Wait for RUN.
 * Open a watch window and use the ::ControlPanel:Input structure to start different scenarios
-* Watch the action in Scene Viewer (User/Password: gmctest)
+* Watch the action in Scene Viewer
