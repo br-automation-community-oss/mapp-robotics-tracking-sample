@@ -1,0 +1,18 @@
+name: Create release
+
+on: [push]
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Zip Folder
+        run: zip -r release.zip .
+      - name: Upload Release
+        uses: ncipollo/release-action@v1.12.0
+        with:
+          artifacts: "release.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyFile: "Body.md"
+        
