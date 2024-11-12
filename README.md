@@ -42,4 +42,7 @@ The NC Programs (Track.st) are located directly in the project folder root. The 
 |:------|:------------|:--------------|
 | Sorting | While sorting, red an blue products are classified. The red products are placed on the outfeed belt and the blue products are placed at the fixed place. <br/><img src="doc/img/Sorting.svg"/><br/><img src="doc/img/Sorting.png"/> | <img src="doc/img/StartSorting.png"/> |
 | Pick and Place | The pick and place demo demonstrates picking a product from a moving belt and placing the product on another belt. <br/><img src="doc/img/PickNPlace.svg" /><br/><img src="doc/img/PickNPlace.png" /> | <img src="doc/img/StartPickNPlace.png" /> |
+| Multipick | The Multipick-Example takes products from two different frame and places the products at a fixed place position. <br/><img src="doc/img/Multipick.svg" /><br/><img src="doc/img/Multipick.png" /> | <img src="doc/img/StartMultipick.png" /> |
+| Conditional Stop | The conditional stop demo shows application with a fixed place position which may be locked with a conditional stop.<br/> In the demo the position is locked every 1,5 seconds for 1,5 seconds.  <br/><img src="doc/img/ConditionalStop.svg" /><br/><img src="doc/img/ConditionalStop.png" /> | <img src="doc/img/StartConditionalStop.png" /> |
+| Pre Palletizing | During pre-palletizing the robot stays synchronized to one frame. The product is shifted with movement commands on that frame. <br/><img src="doc/img/PrePalletizing.svg" /><br/><img src="doc/img/PrePalletizing.png" /> | <img src="doc/img/StartPrePalletizing.png" /> |
 
