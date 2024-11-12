@@ -1,4 +1,5 @@
 # mapp-robotics-tracking-sample
+[DemoVideoOut.webm](https://github.com/user-attachments/assets/4cd81c92-82a7-4335-94d3-36d02113f416)
 
 ## Introduction
 This sample serves as an introduction to the mapp Robotics tracking technology.
@@ -13,8 +14,8 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
   
 ## Requirements
 * Automation Studio/Runtime 6.x
-* mapp Motion 6.x
-* Scene Viewer 6.x
+* mapp Motion 6.2
+* Scene Viewer 6.1.x
 
 ## How-to
 * Download project and open with AS
