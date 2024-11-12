@@ -38,8 +38,8 @@ The NC Programs (Track.st) are located directly in the project folder root. The 
 
 
 ## Feature Details
-| Title   | Decription  | StartWith |
-|---------|-------------|-----------|
-| Sorting | While sorting, red an blue products are classified. The red products are placed on the outfeed belt and the blue products are placed at the fixed place. <img src="doc/img/Sorting.svg" width="400"/> <img src="doc/img/Sorting.png" width="600"/> | <img src="doc/img/StartSorting.png" width="600"/> |
-| Pick and Place | The pick and place demo demonstrates picking a product from a moving belt and placing the product on another belt. <img src="doc/img/PickNPlace.svg" width="400"/><img src="doc/img/PickNPlace.png" width="600"/> | <img src="doc/img/StartPickNPlace.png" width="600"/> |
+| Title | Decription  | StartWith     |
+|:------|:------------|:--------------|
+| Sorting | While sorting, red an blue products are classified. The red products are placed on the outfeed belt and the blue products are placed at the fixed place. <br/><img src="doc/img/Sorting.svg"/><br/><img src="doc/img/Sorting.png"/> | <img src="doc/img/StartSorting.png"/> |
+| Pick and Place | The pick and place demo demonstrates picking a product from a moving belt and placing the product on another belt. <br/><img src="doc/img/PickNPlace.svg" /><br/><img src="doc/img/PickNPlace.png" /> | <img src="doc/img/StartPickNPlace.png" /> |
 
