@@ -16,6 +16,6 @@ TYPE
 		( (*device definition of manipulating robots and axis*)
 		DEV_Conveyor := 0, (*object id for conveyor*)
 		DEV_Robot := 1, (*id for robot 1*)
-		DEV_Removed := 2
+		DEV_Removed := 2 (*marked as removed and do not show in scene*)
 		);
 END_TYPE
