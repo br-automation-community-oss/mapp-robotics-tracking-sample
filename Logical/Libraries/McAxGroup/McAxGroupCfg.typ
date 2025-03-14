@@ -52,12 +52,16 @@ TYPE
 		PowerOnAfterStop : McAGSRQSPwrOnAStopType; (*Controller stays in status on after stop reaction*)
 		PowerOffAfterStop : McAGSRQSPwrOffAStopType; (*Controller is switched off after stop reaction*)
 	END_STRUCT;
+	McAGASRType : STRUCT (*Stop reaction definitions for the axis group*)
+		Quickstop : McAGSRQSType; (*Enables Quickstop functionality for the axis group*)
+	END_STRUCT;
 	McAGAGFType : STRUCT
 		FeatureReference : McCfgUnboundedArrayType; (*Name of the axes group feature reference*)
 	END_STRUCT;
 	McCfgAxGrpAdminType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AXGRP_ADMIN*)
 		ProcessingTaskClass : McPTCEnum; (*Cyclic task class for command processing*)
 		PhysicalAxes : McAGAPhsAxType; (*Defines the axes which are part of the axes group*)
+		StopReaction : McAGASRType; (*Stop reaction definitions for the axis group*)
 		AxesGroupFeatures : McAGAGFType;
 	END_STRUCT;
 	McAGFHOTogGrpType : STRUCT
@@ -78,9 +82,13 @@ TYPE
 	McAGFESAGrpOvrExType : STRUCT (*Group axis override will have no effect on the axes referenced in this list*)
 		AxisReference : McCfgUnboundedArrayType; (*Name of the axis reference*)
 	END_STRUCT;
+	McAGFESAGrpErrStopExType : STRUCT (*Group error stop command will have no effect on the axes referenced in this list*)
+		AxisReference : McCfgUnboundedArrayType; (*Name of the axis reference*)
+	END_STRUCT;
 	McCfgAxGrpFeatExSngAxType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_AXGRP_FEAT_EX_SNG_AX*)
 		GroupStopExclusion : McAGFESAGrpStopExType; (*Group stop command will have no effect on the axes referenced in this list*)
 		GroupOverrideExclusion : McAGFESAGrpOvrExType; (*Group axis override will have no effect on the axes referenced in this list*)
+		GroupErrorStopExclusion : McAGFESAGrpErrStopExType; (*Group error stop command will have no effect on the axes referenced in this list*)
 	END_STRUCT;
 	McAGFSBSBCAxType : STRUCT
 		AxisReference : McCfgUnboundedArrayType; (*Name of the axis reference*)

@@ -49,11 +49,16 @@ ACTION addNewObjects:
 		IF ProductDetails[i].TrackingFrameID = 0 THEN
 			brsmemset(ADR(ProductDetails[i]), 0, SIZEOF(ProductDetailsType));
 			MC_BR_TrackingFrameCreate_0.Parameters.Attribute := ADR(ProductDetails[i]);
+			MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := 0;
 			
 			// Change the color by random timestamp		
 			IF ControlPanel.Input.StartSorting AND (TIM_ticks() MOD 2) = 1 THEN
 				ProductDetails[i].ObjectType := 1;
-			END_IF	
+			END_IF
+			
+			IF ControlPanel.Input.RandomMin <> ControlPanel.Input.RandomMax THEN
+				MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := ControlPanel.Input.RandomMin + (ControlPanel.Input.RandomMax - ControlPanel.Input.RandomMin) * (DINT_TO_REAL(TIM_musec()*1073741824) / 2147483648);
+			END_IF
 			
 			EXIT;
 		END_IF

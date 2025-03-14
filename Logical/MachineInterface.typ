@@ -9,6 +9,8 @@ TYPE
 		Reset : BOOL; (*Reset Error states*)
 		VelocityProduction : REAL; (*Velocity for production [ppm]*)
 		ProductGap : REAL; (*Length of the product [mm]*)
+		RandomMax : REAL;
+		RandomMin : REAL;
 		DeletePosition : REAL; (*Position where objects are deleted*)
 	END_STRUCT;
 	ControlPanelType : 	STRUCT  (*Control Panel*)

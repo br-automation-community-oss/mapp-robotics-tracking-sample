@@ -10,25 +10,45 @@
 
 
 VAR CONSTANT
-	UpperZLevel : LREAL := 100.0;	// Gripper up position
+	UpperZLevel : LREAL := 150.0;	// Gripper up position
 	LowerZLevel : LREAL := 0.0;		// Gripper down position
 	YProductPos : LREAL := 200;		// position in y coordinate where the product should be placed
+	
+	xStep : LREAL := 0.0;					// step size to get a tangential step for tracking
+	yStep : LREAL := 0.1;					// step size to get a tangential step for tracking
+	
 END_VAR
 
 
 VAR	
 	ActObj : REFERENCE TO ProductDetailsType;
-	ParkPos				: McPointType := (Pos:=(X:=-100, Y:=100, 			Z:= UpperZLevel));
-	SynchPosUp			: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= UpperZLevel));
-	SynchPosDown		: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= LowerZLevel));
-	SynchPosForward		: McPointType := (Pos:=(X:= 100, Y:= 0, 			Z:= LowerZLevel));
-	SynchPosSideward	: McPointType := (Pos:=(X:= 100, Y:= 100, 			Z:= LowerZLevel));
-	SynchPosUpSideward	: McPointType := (Pos:=(X:= 100, Y:= 100, 			Z:= UpperZLevel));
+	ParkPos						: McPointType := (Pos:=(X:=-350, 		Y:=-200, 			Z:= UpperZLevel));
+	
+	PreSynchPosUp				: McPointType := (Pos:=(X:=   0+xStep, 	Y:= 0+yStep, 		Z:= UpperZLevel));
+	SynchPosUp					: McPointType := (Pos:=(X:=   0, 		Y:= 0, 				Z:= UpperZLevel));
+	SynchPosDown				: McPointType := (Pos:=(X:=   0, 		Y:= 0, 				Z:= LowerZLevel));
+	SynchPosForward				: McPointType := (Pos:=(X:= 100, 		Y:= 0, 				Z:= LowerZLevel));
+	SynchPosSideward			: McPointType := (Pos:=(X:= 100, 		Y:= 100, 			Z:= LowerZLevel));
+	SynchPosUpSideward			: McPointType := (Pos:=(X:= 100, 		Y:= 100, 			Z:= UpperZLevel));
+	PostSynchPosUpSideward		: McPointType := (Pos:=(X:= 100-xStep, 	Y:=100-yStep,		Z:= UpperZLevel));
+	
 	MoveToPark : BOOL := FALSE;
+	r1 : LREAL := 20.0;
 END_VAR
+
+// The radius is calculate by the half distance between two points this gives the result of a smooth interpolation
+FUNCTION getRadius : LREAL
+	VAR_INPUT 
+		posA : LREAL;
+	END_VAR
+	getRadius := MAX(20.0, ABS(posA) / 2.0);
+END_FUNCTION
+
 
 
 PROGRAM _MAIN
+	
+	EVAL('SERVICE_DATA["EXTENDED_TFA OFF"]', LANGUAGE_BR_GCODE);
 	
 	// Position init, reset frame in case of restart
 	SetPCS(MachineFrame);
@@ -36,16 +56,30 @@ PROGRAM _MAIN
 	
 	// Set the manipulation area of the Robot
 	MaxPickPosIn := 1400;
-	MinPickPosIn := 400;
+	MinPickPosIn := 1100;
 	
 	REPEAT		
 		IF NextTrackingObjectIn <> 0 THEN
 			MoveToPark := FALSE;
-			
 			ActObj ACCESS NextTrackingObjectIn;							// select the product
-			TrackObjectR(ActObj.TrackingFrameID, SynchPosUp, 50, 50);	// track on product
+			
+			Feedrate(50000);
+			r1 := getRadius(ActObj.Pos.Y);
+			
+			PreSynchPosUp := SynchPosUp;
+			PostSynchPosUpSideward := SynchPosUpSideward;
+			IF ActObj.Pos.Y > 0 THEN
+				PreSynchPosUp.Pos.Y := PreSynchPosUp.Pos.Y - yStep;
+				PostSynchPosUpSideward.Pos.Y := PostSynchPosUpSideward.Pos.Y - yStep;
+			ELSE
+				PreSynchPosUp.Pos.Y := PreSynchPosUp.Pos.Y + yStep;
+				PostSynchPosUpSideward.Pos.Y := PostSynchPosUpSideward.Pos.Y + yStep;
+			END_IF
+			
+			TrackObjectR(ActObj.TrackingFrameID, PreSynchPosUp, r1, r1);	// track on product
+			MoveL(SynchPosUp);
 			MoveLR(SynchPosDown);										// move to the take position
-			// close the gripper here
+			
 			SetM(8);													// Scene - start moving the poduct on the belt
 			WaitTime(0.04);												// Wait cause delay of gripper
 			Feedrate(15000);											// manipulate with reduced feedrate
@@ -57,6 +91,7 @@ PROGRAM _MAIN
 			SetM(16);													// Scene - end of moving the product
 			WaitTime(0.04);												// Wait cause delay of gripper
 			MoveLR(SynchPosUpSideward);									// move up to change frame
+			MoveLR(PostSynchPosUpSideward);									// move up to change frame
 			
 			IF NextTrackingObjectIn = 0 THEN							// Need to stop, no objects left
 				TrackStopR(MachineFrame, ParkPos, 50, 50);				// Move to a static frame

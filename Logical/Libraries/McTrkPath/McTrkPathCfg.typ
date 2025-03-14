@@ -51,7 +51,7 @@ TYPE
 		ConsideredSamples : DINT; (*Number of samples used for calculating the velocity [samples]*)
 		PositionDisturbance : LREAL; (*Considered magnitude of position disturbance effects [measurement units]*)
 	END_STRUCT;
-	McTPLinMotSrcPosPVPrepType : STRUCT (*Preparation of the input signal from Motion source*)
+	McTPLinMotSrcPosPVPrepType : STRUCT (*Preparation of the input signal*)
 		Type : McTPLinMotSrcPosPVPrepEnum; (*Signal preparation selector setting*)
 		LinearRegression : McTPLinMotSrcPosPVPrepLinRegType; (*Type mcTPTLMSPPVP_LIN_REG settings*)
 	END_STRUCT;
@@ -61,7 +61,7 @@ TYPE
 		PositiveOverflow : LREAL; (*Position overflow in positive direction*)
 		DelayTime : LREAL; (*Delay time of TrackingPath position signal for error compensation (filtering, delay of signals, ...) [s]*)
 		MovementLimits : McTPLinMotSrcPosPVMoveLimType; (*Velocity, acceleration and deceleration limits to be considered*)
-		Preparation : McTPLinMotSrcPosPVPrepType; (*Preparation of the input signal from Motion source*)
+		Preparation : McTPLinMotSrcPosPVPrepType; (*Preparation of the input signal*)
 	END_STRUCT;
 	McTPLinMotSrcAxAxUseEnum :
 		( (*Axis usage selector setting*)
@@ -127,7 +127,7 @@ TYPE
 		ConsideredSamples : DINT; (*Number of samples used for calculating the velocity [samples]*)
 		PositionDisturbance : LREAL; (*Considered magnitude of position disturbance effects [measurement units]*)
 	END_STRUCT;
-	McTPLinMotSrcAxPrepType : STRUCT (*Preparation of the input signal from Motion source*)
+	McTPLinMotSrcAxPrepType : STRUCT (*Preparation of the input signal*)
 		Type : McTPLinMotSrcAxPrepEnum; (*Signal preparation selector setting*)
 		LinearRegression : McTPLinMotSrcAxPrepLinRegType; (*Type mcTPTLMSAP_LIN_REG settings*)
 	END_STRUCT;
@@ -136,7 +136,7 @@ TYPE
 		AxisUsage : McTPLinMotSrcAxAxUseType; (*Defines how the axis is used*)
 		DelayTime : LREAL; (*Additional delay time of TrackingPath position signal for error compensation [s]*)
 		MovementLimits : McTPLinMotSrcAxMoveLimType; (*Velocity, acceleration and deceleration limits to be considered*)
-		Preparation : McTPLinMotSrcAxPrepType; (*Preparation of the input signal from Motion source*)
+		Preparation : McTPLinMotSrcAxPrepType; (*Preparation of the input signal*)
 	END_STRUCT;
 	McTPLinMotSrcType : STRUCT (*Source describing the TrackingPath movement*)
 		Type : McTPLinMotSrcEnum; (*Motion source selector setting*)
@@ -246,21 +246,25 @@ TYPE
 		TimeBased : McTPLinAutCrtTimeType; (*Type mcTPLinAutCrtC_TIME_BASED settings*)
 		TriggerBased : McTPLinAutCrtTrgType; (*Type mcTPLinAutCrtC_TRG_BASED settings*)
 	END_STRUCT;
-	McTPLinAutCrtType : STRUCT (*The TrackingPath component automatically generates TrackingFrames based on the configured conditions*)
+	McTPLinAutCrtType : STRUCT (*The TrackingPath component generates TrackingFrames automatically based on the configured conditions*)
 		Condition : McCfgUnboundedArrayType;
 	END_STRUCT;
 	McTPLinAutDelCondEnum :
-		( (*Condition 1-10 selector setting*)
+		( (*Condition 1-N selector setting*)
 		mcTPLinAutDelC_POS_BASED := 0, (*Position based - Automatically deletes a TrackingFrame when it leaves the configured position interval*)
-		mcTPLinAutDelC_A_SYNC_PH := 1 (*After sync phase - Automatically deletes a TrackingFrame when the specified axesgroup begins desynchronization*)
+		mcTPLinAutDelC_A_DESYN := 1 (*After desynchronization - Automatically deletes a TrackingFrame when the specified axesgroup finishes desynchronization*)
 		);
 	McTPLinAutDelPosType : STRUCT (*Type mcTPLinAutDelC_POS_BASED settings*)
 		MinPosition : LREAL; (*TrackingFrames with an X position smaller than 'Min position' relative to the TrackingPath coordinate system are automatically deleted [measurement units]*)
 		MaxPosition : LREAL; (*TrackingFrames with an X position greater than 'Max position' relative to the TrackingPath coordinate system are automatically deleted [measurement units]*)
 	END_STRUCT;
+	McTPLinAutDelAfterDesynType : STRUCT (*Type mcTPLinAutDelC_A_DESYN settings*)
+		AxesgroupReference : McCfgReferenceType; (*Name of the axesgroup reference*)
+	END_STRUCT;
 	McTPLinAutDelCondType : STRUCT
-		Type : McTPLinAutDelCondEnum; (*Condition 1-10 selector setting*)
+		Type : McTPLinAutDelCondEnum; (*Condition 1-N selector setting*)
 		PositionBased : McTPLinAutDelPosType; (*Type mcTPLinAutDelC_POS_BASED settings*)
+		AfterDesynchronization : McTPLinAutDelAfterDesynType; (*Type mcTPLinAutDelC_A_DESYN settings*)
 	END_STRUCT;
 	McTPLinAutDelDelayedDelEnum :
 		( (*Delayed deletion selector setting*)
@@ -285,7 +289,7 @@ TYPE
 		mcTPLinFrmDatS_PROC_VAR_REF := 1 (*Process variable reference - The size of the user data type is derived from a sample user data variable*)
 		);
 	McTPLinFrmDatSzDirInType : STRUCT (*Type mcTPLinFrmDatS_DIR_IN settings*)
-		Value : UDINT; (*The size of the user datatype for one TrackingFrame [B]*)
+		Value : UDINT; (*The size of the user data type for one TrackingFrame [B]*)
 	END_STRUCT;
 	McTPLinFrmDatSzProcVarRefType : STRUCT (*Type mcTPLinFrmDatS_PROC_VAR_REF settings*)
 		ProcessVariableName : STRING[250]; (*Process variable of the desired TrackingFrame user data type*)
@@ -299,7 +303,7 @@ TYPE
 		Size : McTPLinFrmDatSzType; (*Defines how the size of the user data for one TrackingFrame is specified*)
 	END_STRUCT;
 	McTPLinTrkFrmType : STRUCT
-		AutomaticCreation : McTPLinAutCrtType; (*The TrackingPath component automatically generates TrackingFrames based on the configured conditions*)
+		AutomaticCreation : McTPLinAutCrtType; (*The TrackingPath component generates TrackingFrames automatically based on the configured conditions*)
 		AutomaticDeletion : McTPLinAutDelType; (*The TrackingPath component deletes TrackingFrames automatically based on the configured conditions*)
 		UserData : McTPLinFrmDatType; (*TrackingFrame user data is automatically allocated and released by the TrackingPath component. During the lifetime of a TrackingFrame the allocated user data can be accessed (read/write) via the corresponding function block*)
 	END_STRUCT;
@@ -390,5 +394,8 @@ TYPE
 	END_STRUCT;
 	McCfgTrkPathScnType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_TRK_PATH_SCN*)
 		SceneViewerObject : McTPSVType; (*Defines if the TrackingPath is contained in the automatically generated scene*)
+	END_STRUCT;
+	McCfgTrkPathAutCrtCondType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_TRK_PATH_AUT_CRT_COND*)
+		Condition : McTPLinAutCrtCondType;
 	END_STRUCT;
 END_TYPE

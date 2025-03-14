@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxGroup 6.2.0 */
+/* McAxGroup 6.4.5582 */
 
 #ifndef _MCAXGROUP_
 #define _MCAXGROUP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxGroup_VERSION
-#define _McAxGroup_VERSION 6.2.0
+#define _McAxGroup_VERSION 6.4.5582
 #endif
 
 #include <bur/plctypes.h>
@@ -406,6 +406,10 @@ typedef struct McAGSRQSType
 	struct McAGSRQSPwrOffAStopType PowerOffAfterStop;
 } McAGSRQSType;
 
+typedef struct McAGASRType
+{	struct McAGSRQSType Quickstop;
+} McAGASRType;
+
 typedef struct McAGAGFType
 {	struct McCfgUnboundedArrayType FeatureReference;
 } McAGAGFType;
@@ -413,6 +417,7 @@ typedef struct McAGAGFType
 typedef struct McCfgAxGrpAdminType
 {	enum McPTCEnum ProcessingTaskClass;
 	struct McAGAPhsAxType PhysicalAxes;
+	struct McAGASRType StopReaction;
 	struct McAGAGFType AxesGroupFeatures;
 } McCfgAxGrpAdminType;
 
@@ -440,9 +445,14 @@ typedef struct McAGFESAGrpOvrExType
 {	struct McCfgUnboundedArrayType AxisReference;
 } McAGFESAGrpOvrExType;
 
+typedef struct McAGFESAGrpErrStopExType
+{	struct McCfgUnboundedArrayType AxisReference;
+} McAGFESAGrpErrStopExType;
+
 typedef struct McCfgAxGrpFeatExSngAxType
 {	struct McAGFESAGrpStopExType GroupStopExclusion;
 	struct McAGFESAGrpOvrExType GroupOverrideExclusion;
+	struct McAGFESAGrpErrStopExType GroupErrorStopExclusion;
 } McCfgAxGrpFeatExSngAxType;
 
 typedef struct McAGFSBSBCAxType

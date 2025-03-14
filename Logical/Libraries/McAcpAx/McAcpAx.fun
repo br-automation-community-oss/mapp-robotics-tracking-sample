@@ -770,3 +770,21 @@ FUNCTION_BLOCK MC_BR_SetParIDText_AcpAx (*Set (write) a single ACOPOS parameter 
 		Internal : McInternalType; (*internal variable*)
 	END_VAR
 END_FUNCTION_BLOCK
+
+FUNCTION_BLOCK MC_BR_GetParIDText_AcpAx
+	VAR_INPUT
+		Axis : REFERENCE TO McAxisType; (*Axis reference.*)
+		Execute : BOOL; (*execution of this FB is started on rising edge of the input*)
+		ParID : UINT; (*ACOPOS parameter ID to be got (written)*)
+	END_VAR
+	VAR_OUTPUT
+		Done : BOOL; (*execution successful. FB finished*)
+		Busy : BOOL; (*FB is active and needs to be called*)
+		Error : BOOL; (*error occurred during operation*)
+		ErrorID : DINT; (*error number*)
+		DataText : STRING[32];
+	END_VAR
+	VAR
+		Internal : McInternalType; (*internal variable*)
+	END_VAR
+END_FUNCTION_BLOCK

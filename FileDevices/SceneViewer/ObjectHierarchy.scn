@@ -217,7 +217,7 @@
 				<ParID parid="101" val="0"/>
 				<ParID parid="102" val="-50.5"/>
 				<ParID parid="103" val="0"/>
-				<ParID parid="104" val="0"/>
+				<ParID parid="104" val="-0"/>
 				<ParID parid="105" val="90"/>
 				<ParID parid="120" val="6: Orange Matte"/>
 				<ParID parid="123" val="16"/>
@@ -272,7 +272,7 @@
 				<ParID parid="101" val="0"/>
 				<ParID parid="102" val="-50.5"/>
 				<ParID parid="103" val="0"/>
-				<ParID parid="104" val="0"/>
+				<ParID parid="104" val="-0"/>
 				<ParID parid="105" val="90"/>
 				<ParID parid="120" val="6: Orange Matte"/>
 				<ParID parid="123" val="16"/>

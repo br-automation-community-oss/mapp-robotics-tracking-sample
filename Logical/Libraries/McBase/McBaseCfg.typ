@@ -5,8 +5,10 @@ TYPE
 		mcCFG_NONE := 0, (*None -*)
 		mcCFG_HW_MODULE := 5, (*Associated with data type McCfgHwModuleSpecificsType*)
 		mcCFG_MMCFG := 10, (*Associated with data type McCfgMMCfgType*)
+		mcCFG_ALMI := 100, (*Associated with data type McCfgAlmIntType*)
 		mcCFG_OBJ_HIER_GCS := 210, (*Associated with data type McCfgObjHierGCSType*)
 		mcCFG_OBJ_HIER := 200, (*Associated with data type McCfgObjHierType*)
+		mcCFG_PRG_IP_AXGRP := 300, (*Associated with data type McCfgPrgIntAxGrpType*)
 		mcCFG_WS := 800, (*Associated with data type McCfgWorkspaceType*)
 		mcCFG_TOOLTBL := 900, (*Tooltable -*)
 		mcCFG_FRMTBL := 1000, (*Associated with data type McCfgFrmTblType*)
@@ -21,7 +23,10 @@ TYPE
 		mcCFG_PROC_TRAK_MON := 1604, (*Associated with data type McCfgProcPtTrakMonType*)
 		mcCFG_TRK_PATH := 1700, (*Associated with data type McCfgTrkPathType*)
 		mcCFG_TRK_PATH_SCN := 1701, (*Associated with data type McCfgTrkPathScnType*)
+		mcCFG_TRK_PATH_AUT_CRT_COND := 1702, (*Associated with data type McCfgTrkPathAutCrtCondType*)
 		mcCFG_PICK_CORE := 2100, (*Associated with data type MpCfgPickCoreType*)
+		mcCFG_PICK_JOB := 2101, (*Associated with data type MpCfgPickJobType*)
+		mcCFG_PICK_OP_MOD := 2102, (*Associated with data type MpCfgPickOpModType*)
 		mcCFG_PICK_REG := 2110, (*Associated with data type MpCfgPickRegType*)
 		mcCFG_PICK_REG_SCN := 2111, (*Associated with data type MpCfgPickRegScnType*)
 		mcCFG_PICK_OBJ_LST := 2120, (*Associated with data type MpCfgPickObjLstType*)
@@ -135,6 +140,18 @@ TYPE
 		mcCFG_ACP_INV_AX := 13600, (*Associated with data type McCfgAcpInvAxType*)
 		mcCFG_ACP_INV_AX_REF := 13611, (*Associated with data type McCfgAcpInvAxRefType*)
 		mcCFG_ACP_INV_AX_MECH_ELM := 13612, (*Associated with data type McCfgAcpInvAxMechElmType*)
+		mcCFG_ACP_INV2_AX := 14600, (*Associated with data type McCfgAcpInv2AxType*)
+		mcCFG_ACP_INV2_AX_REF := 14611, (*Associated with data type McCfgAcpInv2AxRefType*)
+		mcCFG_ACP_INV2_AX_MECH_ELM := 14612, (*Associated with data type McCfgAcpInv2MechElmType*)
+		mcCFG_ACP_INV2_ENC_LINK := 14014, (*Associated with data type McCfgAcpInv2EncLinkType*)
+		mcCFG_ACP_INV2_CTRL := 14015, (*Associated with data type McCfgAcpInv2CtrlType*)
+		mcCFG_ACP_INV2_HOME := 14016, (*Associated with data type McCfgAcpInv2HomeType*)
+		mcCFG_ACP_INV2_STOP_REAC := 14017, (*Associated with data type McCfgAcpInv2StopReacType*)
+		mcCFG_ACP_INV2_MOVE_ERR_LIM := 14018, (*Associated with data type McCfgAcpInv2MoveErrLimType*)
+		mcCFG_ACP_INV2_JERK_FLTR := 14019, (*Associated with data type McCfgAcpInv2JerkFltrType*)
+		mcCFG_ACP_INV2_ZERO_VIB_FLTR := 14024, (*Associated with data type McCfgAcpInv2ZeroVibFltrType*)
+		mcCFG_ACP_INV2_DIG_IN := 14020, (*Associated with data type McCfgAcpInv2DigInType*)
+		mcCFG_ACP_INV2_AX_FEAT := 14022, (*Associated with data type McCfgAcpInv2AxFeatType*)
 		mcCFG_AXGRP_ADMIN := 20000, (*Associated with data type McCfgAxGrpAdminType*)
 		mcCFG_AXGRP_FEAT_HOME_ORD := 20101, (*Associated with data type McCfgAxGrpFeatHomeOrdType*)
 		mcCFG_AXGRP_FEAT_PWR_ON_ORD := 20102, (*Associated with data type McCfgAxGrpFeatPwrOnOrdType*)
@@ -169,6 +186,8 @@ TYPE
 		mcCFG_AXGRP_FEAT_REV_MOVE := 21125, (*Associated with data type McCfgAxGrpFeatRevMoveType*)
 		mcCFG_AXGRP_FEAT_TRK := 21126, (*Associated with data type McCfgAxGrpFeatTrkType*)
 		mcCFG_AXGRP_FEAT_PIPE_CUT := 21127, (*Associated with data type McCfgAxGrpPipeCutType*)
+		mcCFG_AXGRP_FEAT_TRKFRM_SEL := 21128, (*Associated with data type McCfgAxGrpFeatTrkFrmSelType*)
+		mcCFG_AXGRP_FEAT_TRKFRM_SEL_AREA := 21129, (*Associated with data type McCfgAxGrpFeatTrkFrmSelAreaType*)
 		mcCFG_ASM := 31000, (*Associated with data type McCfgAsmType*)
 		mcCFG_ASM_COGG_COMP := 31001, (*Associated with data type McCfgAsmCoggComp*)
 		mcCFG_ASM_ELONG_COMP := 31002, (*Associated with data type McCfgAsmElongComp*)
@@ -181,6 +200,8 @@ TYPE
 		mcCFG_ASM_SH_IDENT_TIME := 31009, (*Associated with data type McCfgAsmShIdentTime*)
 		mcCFG_ASM_POS_CTRL_LAG_MON := 31010, (*Associated with data type McCfgAsmPosCtrlLagMonitor*)
 		mcCFG_ASM_DIVERTER := 31011, (*Associated with data type McCfgAsmDiverter*)
+		mcCFG_ASM_STRATEGY := 31012, (*Associated with data type McCfgAsmColAvoidStrategy*)
+		mcCFG_ASM_ADJUSTMENT_MODE := 31013, (*Associated with data type McCfgAsmColAvoidAdjustMode*)
 		mcCFG_ASM_FEAT_CPLG := 31101, (*Associated with data type McCfgAsmFeatCplgType*)
 		mcCFG_ASM_FEAT_SIM_SH_DEF := 31102, (*Associated with data type McCfgAsmFeatSimShDefType*)
 		mcCFG_ASM_FEAT_SEC_TRACE := 31103, (*Associated with data type McCfgAsmFeatSecTraceType*)
@@ -199,6 +220,7 @@ TYPE
 		mcCFG_SH_STATE_TRANS := 31402, (*Associated with data type McCfgShStateTransType*)
 		mcCFG_SH_ZERO_VIB_FILTER := 31403, (*Associated with data type McCfgShZeroVibFilterType*)
 		mcCFG_SEG := 31500, (*Associated with data type McCfgSegType*)
+		mcCFG_VIRT_SEG := 31501, (*Associated with data type McCfgVirtSegType*)
 		mcCFG_MS_CUS_STD := 50001, (*Associated with data type McCfgMSCusStdType*)
 		mcCFG_MS_2AX_CNC_XY := 51201, (*Associated with data type McCfgMS2AxCncXYType*)
 		mcCFG_MS_2AX_CNC_XZ := 51202, (*Associated with data type McCfgMS2AxCncXZType*)
@@ -220,6 +242,7 @@ TYPE
 		mcCFG_MS_3AX_DELTA_B := 52133, (*Associated with data type McCfgMS3AxDeltaBType*)
 		mcCFG_MS_3AX_DELTA_XZC := 52134, (*Associated with data type McCfgMS3AxDeltaXZCType*)
 		mcCFG_MS_4AX_DELTA_A := 52141, (*Associated with data type McCfgMS4AxDeltaAType*)
+		mcCFG_MS_4AX_DELTA_A_ID := 53141, (*Associated with data type McCfgMS4AxDeltaAIDType*)
 		mcCFG_MS_4AX_DELTA_B := 52142, (*Associated with data type McCfgMS4AxDeltaBType*)
 		mcCFG_MS_4AX_DELTA_C := 52143, (*Associated with data type McCfgMS4AxDeltaCType*)
 		mcCFG_MS_5AX_DELTA_A := 52151, (*Associated with data type McCfgMS5AxDeltaAType*)
@@ -230,7 +253,8 @@ TYPE
 		mcCFG_MS_5AX_ROB_B := 52502, (*Associated with data type McCfgMS5AxRobBType*)
 		mcCFG_MS_6AX_ROB_A := 52601, (*Associated with data type McCfgMS6AxRobAType*)
 		mcCFG_MS_6AX_ROB_B := 52602, (*Associated with data type McCfgMS6AxRobBType*)
-		mcCFG_MS_6AX_ROB_C := 52603 (*Associated with data type McCfgMS6AxRobCType*)
+		mcCFG_MS_6AX_ROB_C := 52603, (*Associated with data type McCfgMS6AxRobCType*)
+		mcCFG_MS_6AX_ROB_D := 52604 (*Associated with data type McCfgMS6AxRobDType*)
 		);
 	McCfgUnboundedArrayType : STRUCT (*General purpose datatype*)
 		NumberOfElements : UDINT;
@@ -356,12 +380,13 @@ TYPE
 		Used : McMMCLogSelUseType; (*Type mcMMCLS_USE settings*)
 	END_STRUCT;
 	McMMCLogType : STRUCT
+		mappMotionLoggerModuleSize : STRING[250]; (*[KB]*)
 		Selective : McMMCLogSelType; (*Define which logging areas should be visible*)
 	END_STRUCT;
 	McMMCMcAcpDrvPLKCycPerParIDEnum :
 		( (*Defines the number of POWERLINK cycles per ParID for parameter transfer*)
-		mcMMCMPCPP_ONE := 1, (*One - One ParID every cycle*)
-		mcMMCMPCPP_TWO := 2 (*Two - One ParID every second cycle*)
+		mcMMCMPCPP_TWO := 2, (*Two - One ParID every second cycle*)
+		mcMMCMPCPP_ONE := 1 (*One - One ParID every cycle*)
 		);
 	McMMCMcAcpDrvType : STRUCT (*ACOPOS driver configuration*)
 		POWERLINKCyclesPerParID : McMMCMcAcpDrvPLKCycPerParIDEnum; (*Defines the number of POWERLINK cycles per ParID for parameter transfer*)
@@ -398,8 +423,15 @@ TYPE
 		Compression : McMcMMCDiSnUseFCompressionType; (*Compression*)
 		Limits : McMcMMCDiSnUseFLimType; (*Limits*)
 	END_STRUCT;
+	McMcMMCDiSnUseTrgTrgType : STRUCT (*Trigger*)
+		Variable : STRING[250]; (*Boolean variable whose positive edge triggers the snapshot*)
+	END_STRUCT;
+	McMcMMCDiSnUseTrgType : STRUCT
+		Trigger : McCfgUnboundedArrayType; (*Trigger*)
+	END_STRUCT;
 	McMcMMCDiSnUseType : STRUCT (*Type mcMMCDS_USE settings*)
 		Files : McMcMMCDiSnUseFType;
+		Triggers : McMcMMCDiSnUseTrgType;
 	END_STRUCT;
 	McMcMMCDiSnType : STRUCT (*Snapshot configuration*)
 		Type : McMcMMCDiSnEnum; (*Snapshot selector setting*)
@@ -413,6 +445,28 @@ TYPE
 		Logger : McMMCLogType;
 		McAcpDrv : McMMCMcAcpDrvType; (*ACOPOS driver configuration*)
 		Diagnostics : McMMCDiagnosticsType;
+	END_STRUCT;
+	McALMIEnum :
+		( (*Alarms selector setting*)
+		mcALMI_NONE := 0, (*None -*)
+		mcALMI_SHARED_ALM := 1, (*Shared alarms -*)
+		mcALMI_MPALARMX := 2 (*MpAlarmX - Advanced alarm system MpAlarmX*)
+		);
+	McALMISharedAlmType : STRUCT (*Type mcALMI_SHARED_ALM settings*)
+		ComponentName : STRING[250]; (*Name of component available as snippet for alarm message*)
+		ConfigPath : STRING[250];
+		ConfigLocation : STRING[250];
+	END_STRUCT;
+	McALMIMpAlarmXType : STRUCT (*Type mcALMI_MPALARMX settings*)
+		ComponentName : STRING[250]; (*Name of component available as snippet for alarm message*)
+	END_STRUCT;
+	McALMIType : STRUCT
+		Type : McALMIEnum; (*Alarms selector setting*)
+		SharedAlarms : McALMISharedAlmType; (*Type mcALMI_SHARED_ALM settings*)
+		MpAlarmX : McALMIMpAlarmXType; (*Type mcALMI_MPALARMX settings*)
+	END_STRUCT;
+	McCfgAlmIntType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_ALMI*)
+		Alarms : McALMIType;
 	END_STRUCT;
 	McOHGCSOTypEnum :
 		( (*Type selector setting*)
@@ -429,6 +483,17 @@ TYPE
 		Angle2 : LREAL; (*Rotation around the second coordinate axis of the rotation order [measurement units]*)
 		Angle3 : LREAL; (*Rotation around the third coordinate axis of the rotation order [measurement units]*)
 	END_STRUCT;
+	McScnEleVisibilityEnum :
+		( (*add Frame name to Frame*)
+		mcOHSEV_NOT_USE := 0, (*Not used*)
+		mcOHSEV_VIS := 1, (*Visible*)
+		mcOHSEV_INVIS := 2 (*Invisible*)
+		);
+	McScnBoundariesEnum :
+		( (*Boundaries selector setting*)
+		mcSVB_NOT_USE := 0, (*Not used -*)
+		mcSVB_USE := 1 (*Used - Boundaries are added*)
+		);
 	McScnSurfaceEnum :
 		( (*Material*)
 		mcSOS_UDEF := 0, (*Undefined*)
@@ -451,6 +516,15 @@ TYPE
 		mcSOS_CERULEAN_BLUE_SHINE := 17, (*Cerulean Blue Shine*)
 		mcSOS_SILVER := 18 (*Silver*)
 		);
+	McScnBoundariesUseType : STRUCT (*Type mcSVB_USE settings*)
+		Material : McScnSurfaceEnum; (*Material*)
+		Opacitiy : REAL; (*Opacitiy*)
+		Dimensions : McScnEleVisibilityEnum; (*add Dimensions to Boundaries*)
+	END_STRUCT;
+	McScnBoundariesType : STRUCT (*add Boundaries*)
+		Type : McScnBoundariesEnum; (*Boundaries selector setting*)
+		Used : McScnBoundariesUseType; (*Type mcSVB_USE settings*)
+	END_STRUCT;
 	McOHGCSOTCType : STRUCT (*Type mcOHGCSOT_CMPT settings*)
 		ComponentReference : McCfgReferenceType;
 		Translation : McCfgTransXYZType; (*Translation parameters*)
@@ -560,6 +634,12 @@ TYPE
 	END_STRUCT;
 	McOHScnExType : STRUCT (*Defines Scene Viewer export settings*)
 		FileDevice : STRING[250]; (*File device where the Object Hierarchy Scene Viewer file will be created*)
+		FileName : STRING[250]; (*File name*)
+		SceneName : STRING[250]; (*Scene name*)
+		ViewAngle : REAL; (*View Angle*)
+		ViewDistance : REAL; (*View Distance*)
+		ViewExtension : REAL; (*View Extension*)
+		Boundaries : McScnBoundariesType; (*add Boundaries*)
 	END_STRUCT;
 	McCfgObjHierType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_OBJ_HIER*)
 		MeasurementUnits : McOHMeasUnitType; (*Defines the measurement units*)
@@ -886,8 +966,18 @@ TYPE
 		mcPPTAPBF_OFF := 0, (*Off - Disable barrier functionality*)
 		mcPPTAPBF_ON := 1 (*On - Enable barrier functionality*)
 		);
+	McPPTAcpTrakPtShStopPosEnum :
+		( (*Mode that determines the stop position of a shuttle in front of a barrier*)
+		mcPPTASPSP_EXT := 0, (*Extent - Stop shuttle with extent in front of barrier*)
+		mcPPTASPSP_CTR_PT := 1 (*Center point - Stop shuttle center point in front of barrier*)
+		);
+	McPPTAcpTrakPtBarrFunOnType : STRUCT (*Type mcPPTAPBF_ON settings*)
+		ShuttleStopPosition : McPPTAcpTrakPtShStopPosEnum; (*Mode that determines the stop position of a shuttle in front of a barrier*)
+		BarrierStopDistance : LREAL; (*Additional safety distance between a shuttle and a process point [Measurement units]*)
+	END_STRUCT;
 	McPPTAcpTrakPtBarrFunType : STRUCT (*Enable barrier functionality for process point*)
 		Type : McPPTAcpTrakPtBarrFunEnum; (*Barrier functionality selector setting*)
+		On : McPPTAcpTrakPtBarrFunOnType; (*Type mcPPTAPBF_ON settings*)
 	END_STRUCT;
 	McPPTAcpTrakPtPPMMonEnum :
 		( (*Throughput monitor selector setting*)
@@ -956,6 +1046,13 @@ TYPE
 	McPTCEnum :
 		( (*Task class for cyclic data processing*)
 		mcPTC_CYC_1 := 1, (*Cyclic #1 - Task class 1*)
+		mcPTC_CYC_2 := 2, (*Cyclic #2 - Task class 2*)
+		mcPTC_CYC_3 := 3, (*Cyclic #3 - Task class 3*)
+		mcPTC_CYC_4 := 4, (*Cyclic #4 - Task class 4*)
+		mcPTC_CYC_5 := 5, (*Cyclic #5 - Task class 5*)
+		mcPTC_CYC_6 := 6, (*Cyclic #6 - Task class 6*)
+		mcPTC_CYC_7 := 7, (*Cyclic #7 - Task class 7*)
+		mcPTC_CYC_8 := 8, (*Cyclic #8 - Task class 8*)
 		mcPTC_USE_MP_MOT_SET := 255 (*Use mapp Motion setting - Use the defined setting from the mapp Motion configuration or Task class 1 if no mapp Motion Configuration exists*)
 		);
 	McCfgGearBoxType : STRUCT (*Ratio between a gearbox input and output*)

@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McTrkPath 6.2.0 */
+/* McTrkPath 6.4.5582 */
 
 #ifndef _MCTRKPATH_
 #define _MCTRKPATH_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McTrkPath_VERSION
-#define _McTrkPath_VERSION 6.2.0
+#define _McTrkPath_VERSION 6.4.5582
 #endif
 
 #include <bur/plctypes.h>
@@ -155,7 +155,7 @@ typedef enum McTPLinAutCrtTrgTrgEnum
 
 typedef enum McTPLinAutDelCondEnum
 {	mcTPLinAutDelC_POS_BASED = 0,
-	mcTPLinAutDelC_A_SYNC_PH = 1
+	mcTPLinAutDelC_A_DESYN = 1
 } McTPLinAutDelCondEnum;
 
 typedef enum McTPLinAutDelDelayedDelEnum
@@ -466,9 +466,14 @@ typedef struct McTPLinAutDelPosType
 	double MaxPosition;
 } McTPLinAutDelPosType;
 
+typedef struct McTPLinAutDelAfterDesynType
+{	struct McCfgReferenceType AxesgroupReference;
+} McTPLinAutDelAfterDesynType;
+
 typedef struct McTPLinAutDelCondType
 {	enum McTPLinAutDelCondEnum Type;
 	struct McTPLinAutDelPosType PositionBased;
+	struct McTPLinAutDelAfterDesynType AfterDesynchronization;
 } McTPLinAutDelCondType;
 
 typedef struct McTPLinAutDelDelayedDelCfrmType
@@ -585,6 +590,10 @@ typedef struct McTPSVType
 typedef struct McCfgTrkPathScnType
 {	struct McTPSVType SceneViewerObject;
 } McCfgTrkPathScnType;
+
+typedef struct McCfgTrkPathAutCrtCondType
+{	struct McTPLinAutCrtCondType Condition;
+} McCfgTrkPathAutCrtCondType;
 
 typedef struct MC_BR_TrackingFramesCreate
 {
