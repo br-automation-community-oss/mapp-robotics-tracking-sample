@@ -20,9 +20,9 @@ ACTION addNewObjects:
 	END_IF
 	
 	// simulate two diffent product types
-	MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 0;
+	MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 1;
 	IF (TIM_ticks() MOD 2) = 1 THEN
-		MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 1;
+		MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 2;
 	END_IF;
 		
 	// Add frame in the buffer

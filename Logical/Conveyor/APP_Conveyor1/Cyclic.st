@@ -51,7 +51,6 @@ PROGRAM _CYCLIC
 				addNewObjects;
 			END_IF	
 				
-			
 			IF MpAxConveyor.Error THEN
 				State := STATE_ERROR;
 				
