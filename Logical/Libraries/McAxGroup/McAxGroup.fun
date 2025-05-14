@@ -182,7 +182,7 @@ FUNCTION_BLOCK MC_BR_GroupPower
 		Enable : BOOL; (*Turns drive power stages on/off*)
 	END_VAR
 	VAR_OUTPUT
-		Status : BOOL; (*Indicates whether all axes in the group are on*)
+		Status : BOOL; (*Indicates whether all axes in the group have been powered by this function block instance. The current status of the axis group can be read using MC_BR_GroupReadInfo.*)
 		Busy : BOOL; (*Function block is active and must continue to be called.*)
 		Error : BOOL; (*Error occurred during execution.*)
 		ErrorID : DINT; (*Error number*)

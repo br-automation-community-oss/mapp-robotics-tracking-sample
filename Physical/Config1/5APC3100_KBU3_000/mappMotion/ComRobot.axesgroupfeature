@@ -14,21 +14,13 @@
     <Selector ID="Type" Value="MFunctions">
       <Group ID="MFunction[1]">
         <Selector ID="IndexType">
-          <Property ID="Index" Value="8" />
-        </Selector>
-        <Selector ID="Blocking" Value="Disabled" />
-        <Selector ID="InSimulation" Value="Set" />
-        <Property ID="PvMapping" Value="::APP_Robot1:M8" />
-      </Group>
-      <Group ID="MFunction[2]">
-        <Selector ID="IndexType">
           <Property ID="Index" Value="16" />
         </Selector>
         <Selector ID="Blocking" Value="Disabled" />
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M16" />
       </Group>
-      <Group ID="MFunction[3]">
+      <Group ID="MFunction[2]">
         <Selector ID="IndexType">
           <Property ID="Index" Value="17" />
         </Selector>
@@ -36,7 +28,7 @@
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M17" />
       </Group>
-      <Group ID="MFunction[4]">
+      <Group ID="MFunction[3]">
         <Selector ID="IndexType">
           <Property ID="Index" Value="32" />
         </Selector>
@@ -44,7 +36,7 @@
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M32" />
       </Group>
-      <Group ID="MFunction[5]">
+      <Group ID="MFunction[4]">
         <Selector ID="IndexType">
           <Property ID="Index" Value="33" />
         </Selector>
@@ -52,7 +44,7 @@
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M33" />
       </Group>
-      <Group ID="MFunction[6]">
+      <Group ID="MFunction[5]">
         <Selector ID="IndexType">
           <Property ID="Index" Value="34" />
         </Selector>
@@ -60,10 +52,15 @@
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M34" />
       </Group>
+      <Group ID="MFunction[6]">
+        <Selector ID="IndexType">
+          <Property ID="Index" Value="40" />
+        </Selector>
+        <Selector ID="Blocking" Value="Disabled" />
+        <Selector ID="InSimulation" Value="Set" />
+        <Property ID="PvMapping" Value="::APP_Robot1:M40" />
+      </Group>
     </Selector>
-  </Element>
-  <Element ID="Feature_InterpreterLog" Type="axesgroupfeature">
-    <Selector ID="Type" Value="MotionPacketLog" />
   </Element>
   <Element ID="Feature_Monitoring" Type="axesgroupfeature">
     <Selector ID="Type" Value="MonitoringElements">
@@ -116,6 +113,59 @@
   <Element ID="Feature_WorkspaceMonitoring" Type="axesgroupfeature">
     <Selector ID="Type" Value="WorkspaceMonitoring">
       <Property ID="WorkspaceRef" Value="Workspace_1" />
+    </Selector>
+  </Element>
+  <Element ID="Feature_Selection" Type="axesgroupfeature">
+    <Selector ID="Type" Value="TrackingFrameSelection">
+      <Group ID="Selectors">
+        <Selector ID="Selector[1]">
+          <Property ID="Name" Value="Infeed" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrackingPathConveyor_1" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]">
+                <Group ID="Translation">
+                  <Property ID="X" Value="-1500" />
+                  <Property ID="Y" Value="-500" />
+                  <Property ID="Z" Value="-1000" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Length" Value="1500" />
+                  <Property ID="Width" Value="1000" />
+                  <Property ID="Height" Value="1000" />
+                </Group>
+              </Selector>
+            </Selector>
+            <Selector ID="Filter[3]" Value="AttributeMask">
+              <Property ID="Mask" Value="2#0011" />
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="Selector[2]">
+          <Property ID="Name" Value="Outfeed" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrackingPathConveyor_2" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]">
+                <Group ID="Translation">
+                  <Property ID="X" Value="0" />
+                  <Property ID="Y" Value="-500" />
+                  <Property ID="Z" Value="-1000" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Length" Value="1500" />
+                  <Property ID="Width" Value="1000" />
+                  <Property ID="Height" Value="1000" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
     </Selector>
   </Element>
 </Configuration>

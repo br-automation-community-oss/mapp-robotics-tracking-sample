@@ -4,6 +4,6 @@
   <Objects>
     <Object Type="File">AxisAx_1.axis</Object>
     <Object Type="File">Config_1.trackingpath</Object>
-    <Object Type="File">Config_7.axisfeature</Object>
+    <Object Type="File" TransferedForTargetSourceCompare="false">Config_7.purevaxcfg</Object>
   </Objects>
 </Package>

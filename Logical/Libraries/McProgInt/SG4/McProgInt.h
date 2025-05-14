@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McProgInt 6.2.0 */
+/* McProgInt 6.3.0 */
 
 #ifndef _MCPROGINT_
 #define _MCPROGINT_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McProgInt_VERSION
-#define _McProgInt_VERSION 6.2.0
+#define _McProgInt_VERSION 6.3.0
 #endif
 
 #include <bur/plctypes.h>
