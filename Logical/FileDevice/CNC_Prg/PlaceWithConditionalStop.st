@@ -10,7 +10,7 @@ VAR
 	SynchPosDown		: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= LowerZLevel));
 	StaticMoveDown		: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= -100));
 	StaticMoveUp		: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= 100));
-	
+		
 	FrameIn : McTrkFrmIdentType;
 	FrameOut : McTrkFrmIdentType;
 END_VAR

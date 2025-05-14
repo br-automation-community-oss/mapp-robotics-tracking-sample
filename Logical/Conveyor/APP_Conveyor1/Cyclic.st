@@ -47,8 +47,7 @@ PROGRAM _CYCLIC
 			AxParConveyor.Velocity := ControlPanel.Input.VelocityProduction;
 			MpAxConveyor.MoveVelocity := TRUE;
 			
-			IF NOT MC_BR_TrackingFrameCreate_0.Busy AND ((MpAxConveyor.Position >= LastProductPosition + ControlPanel.Input.ProductGap) 																							  OR 
-				(MpAxConveyor.Position < LastProductPosition AND (LastProductPosition + ControlPanel.Input.ProductGap >= McCfgAxConveyor.BaseType.LinearPeriodic.PeriodSettings.Period))) THEN
+			IF NOT MC_BR_TrackingFrameCreate_0.Busy THEN
 				addNewObjects;
 			END_IF	
 				

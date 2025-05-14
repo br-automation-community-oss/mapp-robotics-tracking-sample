@@ -85,6 +85,9 @@ PROGRAM _CYCLIC
 	MC_GroupContinue_0(AxesGroup := LinkAxesGroup);
 	MC_BR_PathInfo_0(AxesGroup := LinkAxesGroup);
 	MC_BR_ConditionalStop_0(AxesGroup := LinkAxesGroup);
+	MC_BR_GroupReadCyclicPosition_X(AxesGroup := LinkAxesGroup);
+	MC_BR_TrackingFrameCreate_X(TrackingPath := LinkTrackingPath);
+	MC_BR_ReadCyclicPosition_X(Axis := LinkAxisTrackingPath);
 	
 	
 	MC_GroupReset_X.Execute := FALSE;
@@ -92,6 +95,7 @@ PROGRAM _CYCLIC
 	MC_BR_MoveProgram_X.Execute := FALSE;
 	MC_BR_GroupStop_X.Execute := FALSE;
 	MC_GroupContinue_0.Execute := FALSE;
+	MC_BR_TrackingFrameCreate_X.Execute := FALSE;
 	
 	IF NOT IPMonitor.Handshake THEN
 		IPMonitor.Handshake := TRUE;

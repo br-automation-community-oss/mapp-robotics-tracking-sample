@@ -2,7 +2,7 @@
 ACTION DefineLinks: 
 	LinkTrackingPath := ADR(gTrackingPathConveyor_1);
 	LinkAxis := ADR(gAxis_Conveyor_1);
-	
+	Period := 100000.0;
 	
 	Reset ACCESS ADR(ControlPanel.Input.Reset);
 	Start ACCESS ADR(ControlPanel.Input.StartMultipick);

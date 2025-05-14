@@ -3,7 +3,7 @@ MpAxisBasic function blocks used for Conveyor Handling*)
 VAR
 	MpAxConveyor : MpAxisBasic;
 	AxParConveyor : MpAxisBasicParType;
-	McCfgAxConveyor : McCfgAxBaseTypType;
+	Period : LREAL;
 	LinkTrackingPath : UDINT;
 	LinkAxis : UDINT;
 END_VAR

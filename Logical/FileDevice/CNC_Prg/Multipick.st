@@ -1,23 +1,23 @@
 VAR CONSTANT
-UpperZLevel : LREAL := 100.0;	// Gripper up position
-LowerZLevel : LREAL := 0.0;		// Gripper down position
-YProductPos : LREAL := 200;		// position in y coordinate where the product should be placed
-	END_VAR
+	UpperZLevel : LREAL := 100.0;	// Gripper up position
+	LowerZLevel : LREAL := 0.0;		// Gripper down position
+	YProductPos : LREAL := 200;		// position in y coordinate where the product should be placed
+END_VAR
 
-	VAR	
-ParkPos				: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= UpperZLevel));
-SynchPosUp1			: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= UpperZLevel));
-SynchPosUp2			: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= UpperZLevel));
-SynchPosDown1		: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= LowerZLevel));
-SynchPosDown2		: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= LowerZLevel));
-StaticMoveDown		: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= 0));
-MoveToPark : BOOL 	:= FALSE;
-	
-FrameIn : McTrkFrmIdentType;
-FrameOut : McTrkFrmIdentType;
-	END_VAR
+VAR	
+	ParkPos				: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= UpperZLevel));
+	SynchPosUp1			: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= UpperZLevel));
+	SynchPosUp2			: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= UpperZLevel));
+	SynchPosDown1		: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= LowerZLevel));
+	SynchPosDown2		: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= LowerZLevel));
+	StaticMoveDown		: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= 0));
+	MoveToPark : BOOL 	:= FALSE;
+		
+	FrameIn : McTrkFrmIdentType;
+	FrameOut : McTrkFrmIdentType;
+END_VAR
 
-	PROGRAM _MAIN
+PROGRAM _MAIN
 	
 	// Position init, reset frame in case of restart
 	SetPCS(MachineFrame);
@@ -63,4 +63,4 @@ FrameOut : McTrkFrmIdentType;
 		
 	UNTIL FALSE END_REPEAT;
 	
-	END_PROGRAM 
+END_PROGRAM 

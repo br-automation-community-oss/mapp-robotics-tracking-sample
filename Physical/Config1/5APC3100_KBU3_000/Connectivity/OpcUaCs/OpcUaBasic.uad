@@ -45,8 +45,6 @@
       <Variable Name="MultigripperClosedPos2" />
       <Variable Name="GripperClosed" />
     </Task>
-    <Task Name="APP_Conve1">
-      <Variable Name="McCfgAxConveyor" RecursiveEnable="2" />
-    </Task>
+    <Task Name="APP_Conve1" />
   </Module>
 </OpcUaSource>

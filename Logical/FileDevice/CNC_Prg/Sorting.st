@@ -4,7 +4,6 @@ VAR CONSTANT
 	YProductPos : LREAL := 200;		// position in y coordinate where the product should be placed
 END_VAR
 
-
 VAR	
 	ParkPos				: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= UpperZLevel));
 	SynchPosUp			: McPointType := (Pos:=(X:=   0, Y:= 0, 			Z:= UpperZLevel));

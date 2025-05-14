@@ -4,6 +4,10 @@ ACTION DefineLinks:
 	NameAxesGroup	:= 'gAxesGroup_D4r1100_1';
 	LinkAxesGroup	:= ADR(gAxesGroup_D4r1100_1);
 	
+	LinkTrackingPath := ADR(gTrackingPathConveyor_1);
+	NameTrackingPath := 'gTrackingPathConveyor_1';
+	LinkAxisTrackingPath := ADR(gAxis_Conveyor_1);
+	
 	
 	Reset ACCESS ADR(ControlPanel.Input.Reset);
 	Start ACCESS ADR(ControlPanel.Input.StartMultipick);

@@ -18,6 +18,14 @@ ACTION operateGripper:
 	IF M34 THEN
 		MultigripperClosedPos2 := TRUE;
 	END_IF
+	
+	IF M40 THEN
+		MC_BR_TrackingFrameCreate_X.Parameters.Translation.X := MC_BR_GroupReadCyclicPosition_X.CyclicPosition[0];
+		MC_BR_TrackingFrameCreate_X.Parameters.Translation.Y := MC_BR_GroupReadCyclicPosition_X.CyclicPosition[1];
+		MC_BR_TrackingFrameCreate_X.Parameters.LatchedPath.Position := MC_BR_ReadCyclicPosition_X.CyclicPosition;
+		MC_BR_TrackingFrameCreate_X.Parameters.Attribute := 4;
+		MC_BR_TrackingFrameCreate_X.Execute := TRUE;
+	END_IF
 		
 	M8 := FALSE;
 	M16 := FALSE;
@@ -25,6 +33,7 @@ ACTION operateGripper:
 	M32 := FALSE;
 	M33 := FALSE;
 	M34 := FALSE;
+	M40 := FALSE;
 END_ACTION	
 
 

@@ -1,7 +1,17 @@
 ACTION addNewObjects:
-		
+	
+	// overflow handling
+	IF MpAxConveyor.Position < LastProductPosition THEN
+		LastProductPosition := LastProductPosition - Period;
+	END_IF
+	
+	IF MpAxConveyor.Position <  LastProductPosition	+ ControlPanel.Input.ProductGap THEN
+		RETURN;
+	END_IF
+	
 	MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := yRange/2 - UDINT_TO_LREAL(createCnt) * yRange;
-		
+	
+	// create two products on request
 	IF createCnt > 0 OR yRange = 0 THEN
 		createCnt := 0;
 		LastProductPosition := MpAxConveyor.Position;

@@ -60,6 +60,14 @@
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M34" />
       </Group>
+      <Group ID="MFunction[7]">
+        <Selector ID="IndexType">
+          <Property ID="Index" Value="40" />
+        </Selector>
+        <Selector ID="Blocking" Value="Disabled" />
+        <Selector ID="InSimulation" Value="Set" />
+        <Property ID="PvMapping" Value="::APP_Robot1:M40" />
+      </Group>
     </Selector>
   </Element>
   <Element ID="Feature_Monitoring" Type="axesgroupfeature">
@@ -137,6 +145,9 @@
                   <Property ID="Height" Value="1000" />
                 </Group>
               </Selector>
+            </Selector>
+            <Selector ID="Filter[3]" Value="AttributeMask">
+              <Property ID="Mask" Value="2#0011" />
             </Selector>
           </Group>
         </Selector>
