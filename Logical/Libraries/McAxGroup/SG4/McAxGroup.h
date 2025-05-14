@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxGroup 6.2.0 */
+/* McAxGroup 6.3.0 */
 
 #ifndef _MCAXGROUP_
 #define _MCAXGROUP_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxGroup_VERSION
-#define _McAxGroup_VERSION 6.2.0
+#define _McAxGroup_VERSION 6.3.0
 #endif
 
 #include <bur/plctypes.h>
