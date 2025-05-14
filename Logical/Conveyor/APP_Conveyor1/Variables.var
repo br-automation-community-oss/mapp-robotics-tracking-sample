@@ -11,24 +11,14 @@ END_VAR
 MpAxisBasicConfig function blocks*)
 VAR
 	LastProductPosition : LREAL := 0;
-	State : DeviceStatesListEnum; (*Statemachine of conveyor*)
-	Start : BOOL;
-	createCnt : UDINT;
-	i : INT := 0; (*Loop counter*)
+	State : ConveyorStatesEnum; (*Statemachine of conveyor*)
+	Reset : REFERENCE TO BOOL;
+	Start : REFERENCE TO BOOL;
 END_VAR
 (*
 Tracking function*)
 VAR
 	MC_BR_TrackingFrameCreate_0 : MC_BR_TrackingFrameCreate;
-	MC_BR_TrackingPathGetFrames_0 : MC_BR_TrackingPathGetFrames;
-	MC_BR_TrackingFrameDelete_0 : MC_BR_TrackingFrameDelete;
-	Products : ARRAY[0..MAX_TRACKING_FRAMES] OF McTrkFrmInfoType; (*Memory holding all tracking frames (Get Frames)*)
-	ProductDetails : ARRAY[0..MAX_TRACKING_FRAMES] OF ProductDetailsType; (*Additional Attribute memory for the tracking frames*)
-	ParkPosition : LREAL := 0; (*Fixed Belt - Workaround *)
-	ProdDetails : REFERENCE TO ProductDetailsType; (*Scene Viewer*)
-END_VAR
-(*
-Product positions (Variable for Scene Viewer)*)
-VAR
-	ProductsPosition : ARRAY[0..MAX_TRACKING_FRAMES] OF ProdPosType; (*Scene Viewer Data*)
+	createCnt : USINT;
+	yRange : LREAL;
 END_VAR

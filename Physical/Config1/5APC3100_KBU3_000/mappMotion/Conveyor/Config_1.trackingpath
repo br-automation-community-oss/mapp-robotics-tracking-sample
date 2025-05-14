@@ -4,11 +4,19 @@
   <Element ID="gTrackingPathConveyor_2" Type="trackingpath" Description="Tracking Path with moving objects">
     <Selector ID="Type">
       <Selector ID="MotionSource" Value="Axis">
-        <Property ID="AxisRef" Value="AxConveyor_2" />
-        <Selector ID="AxisUsage">
-          <Selector ID="CommandConsideration" Value="SupportBasicCommands" />
-        </Selector>
+        <Property ID="AxisRef" Value="gAxis_Conveyor_2" />
       </Selector>
+      <Group ID="TrackingFrames">
+        <Group ID="AutomaticDeletion">
+          <Selector ID="Condition[1]">
+            <Property ID="MinPosition" Value="-100" />
+            <Property ID="MaxPosition" Value="3000" />
+          </Selector>
+          <Selector ID="Condition[2]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100_1" />
+          </Selector>
+        </Group>
+      </Group>
     </Selector>
     <Selector ID="SceneViewerObject">
       <Selector ID="VisualRepresentation" Value="Conveyor belt">
@@ -27,11 +35,19 @@
   <Element ID="gTrackingPathConveyor_1" Type="trackingpath" Description="Tracking Path with moving objects">
     <Selector ID="Type">
       <Selector ID="MotionSource" Value="Axis">
-        <Property ID="AxisRef" Value="AxConveyor_1" />
-        <Selector ID="AxisUsage">
-          <Selector ID="CommandConsideration" Value="SupportBasicCommands" />
-        </Selector>
+        <Property ID="AxisRef" Value="gAxis_Conveyor_1" />
       </Selector>
+      <Group ID="TrackingFrames">
+        <Group ID="AutomaticDeletion">
+          <Selector ID="Condition[1]">
+            <Property ID="MinPosition" Value="-100" />
+            <Property ID="MaxPosition" Value="3000" />
+          </Selector>
+          <Selector ID="Condition[2]" Value="AfterDesynchronization">
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100_1" />
+          </Selector>
+        </Group>
+      </Group>
     </Selector>
     <Selector ID="SceneViewerObject">
       <Selector ID="VisualRepresentation" Value="Conveyor belt">

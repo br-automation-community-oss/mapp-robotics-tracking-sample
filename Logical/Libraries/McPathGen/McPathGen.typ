@@ -222,6 +222,7 @@ TYPE
 		Tool : McToolGeometryType; (**)
 		JointCount : UDINT; (**)
 		TcpCount : UDINT; (**)
+		CustomDataAddr : UDINT; (**)
 	END_STRUCT;
 
 	McPathGenCusMechDirType : STRUCT (*Custom mechanical system: Data for direct function*)
@@ -249,6 +250,7 @@ TYPE
 		Tool : McToolGeometryType; (**)
 		JointCount : UDINT; (**)
 		TcpCount : UDINT; (**)
+		CustomDataAddr : UDINT; (**)
 	END_STRUCT;
 
 	McPathGenCusMechInvType : STRUCT (*Custom mechanical system: Data for inverse function*)
@@ -274,6 +276,7 @@ TYPE
 		Tool : McToolGeometryType; (**)
 		JointCount : UDINT; (**)
 		TcpCount : UDINT; (**)
+		CustomDataAddr : UDINT; (**)
 	END_STRUCT;
 
 	McPathGenCusMechDirDerType : STRUCT (*Custom mechanical system: Data for direct derivative function*)
@@ -302,6 +305,7 @@ TYPE
 		Tool : McToolGeometryType; (**)
 		JointCount : UDINT; (**)
 		TcpCount : UDINT; (**)
+		CustomDataAddr : UDINT; (**)
 	END_STRUCT;
 
 	McPathGenCusMechInvDerType : STRUCT (*Custom mechanical system: Data for inverse derivative function*)
@@ -340,6 +344,7 @@ TYPE
 		Tool : McToolGeometryType;
 		JointCount : UDINT;
 		CheckSelfCollision : BOOL;
+		CustomDataAddr : UDINT; (**)
 	END_STRUCT;
 
 	McPathGenCusMechWMInfoType :	STRUCT	(*Custom mechanical system: Wireframe model info*)

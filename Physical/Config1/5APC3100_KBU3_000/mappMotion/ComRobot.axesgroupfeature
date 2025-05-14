@@ -62,9 +62,6 @@
       </Group>
     </Selector>
   </Element>
-  <Element ID="Feature_InterpreterLog" Type="axesgroupfeature">
-    <Selector ID="Type" Value="MotionPacketLog" />
-  </Element>
   <Element ID="Feature_Monitoring" Type="axesgroupfeature">
     <Selector ID="Type" Value="MonitoringElements">
       <Group ID="SingleElements">
@@ -116,6 +113,56 @@
   <Element ID="Feature_WorkspaceMonitoring" Type="axesgroupfeature">
     <Selector ID="Type" Value="WorkspaceMonitoring">
       <Property ID="WorkspaceRef" Value="Workspace_1" />
+    </Selector>
+  </Element>
+  <Element ID="Feature_Selection" Type="axesgroupfeature">
+    <Selector ID="Type" Value="TrackingFrameSelection">
+      <Group ID="Selectors">
+        <Selector ID="Selector[1]">
+          <Property ID="Name" Value="Infeed" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrackingPathConveyor_1" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]">
+                <Group ID="Translation">
+                  <Property ID="X" Value="-1500" />
+                  <Property ID="Y" Value="-500" />
+                  <Property ID="Z" Value="-1000" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Length" Value="1500" />
+                  <Property ID="Width" Value="1000" />
+                  <Property ID="Height" Value="1000" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+        </Selector>
+        <Selector ID="Selector[2]">
+          <Property ID="Name" Value="Outfeed" />
+          <Group ID="Filters">
+            <Selector ID="Filter[1]">
+              <Property ID="TrackingPathRef[1]" Value="gTrackingPathConveyor_2" />
+            </Selector>
+            <Selector ID="Filter[2]" Value="SelectionArea">
+              <Selector ID="Area[1]">
+                <Group ID="Translation">
+                  <Property ID="X" Value="0" />
+                  <Property ID="Y" Value="-500" />
+                  <Property ID="Z" Value="-1000" />
+                </Group>
+                <Group ID="Dimensions">
+                  <Property ID="Length" Value="500" />
+                  <Property ID="Width" Value="1000" />
+                  <Property ID="Height" Value="1000" />
+                </Group>
+              </Selector>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
     </Selector>
   </Element>
 </Configuration>

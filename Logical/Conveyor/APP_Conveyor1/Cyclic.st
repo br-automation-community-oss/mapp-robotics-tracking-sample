@@ -1,12 +1,5 @@
 PROGRAM _CYCLIC	
-
-	Start := 
-	ControlPanel.Input.StartMultipick OR 
-	ControlPanel.Input.StartPickNPlace OR 
-	ControlPanel.Input.StartPlaceWithConditionalStop OR 
-	ControlPanel.Input.StartPrePalletizing OR
-	ControlPanel.Input.StartSorting;
-
+	DefineLinks;
 	
 	CASE State OF
 		
@@ -17,9 +10,9 @@ PROGRAM _CYCLIC
 				State := 	STATE_INIT;
 			END_IF
 
-			/////////////////////////////////////////////////////////////////////////////
+		/////////////////////////////////////////////////////////////////////////////
 		STATE_INIT:
-			////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////
 			
 			IF MpAxConveyor.CommandBusy THEN
 				// wait	
@@ -54,24 +47,13 @@ PROGRAM _CYCLIC
 			AxParConveyor.Velocity := ControlPanel.Input.VelocityProduction;
 			MpAxConveyor.MoveVelocity := TRUE;
 			
-			// Frame Handling
-			MC_BR_TrackingPathGetFrames_0.Execute := NOT(MC_BR_TrackingPathGetFrames_0.Done);
-			IF MC_BR_TrackingPathGetFrames_0.Done AND NOT MC_BR_TrackingPathGetFrames_0.Busy AND NOT(MC_BR_TrackingFrameDelete_0.Execute) AND NOT(MC_BR_TrackingFrameCreate_0.Execute) THEN
+			IF NOT MC_BR_TrackingFrameCreate_0.Busy AND ((MpAxConveyor.Position >= LastProductPosition + ControlPanel.Input.ProductGap) 																							  OR 
+				(MpAxConveyor.Position < LastProductPosition AND (LastProductPosition + ControlPanel.Input.ProductGap >= McCfgAxConveyor.BaseType.LinearPeriodic.PeriodSettings.Period))) THEN
+				addNewObjects;
+			END_IF	
 				
-				// Update the Data of the products stored in the product buffer
-				updateProductData;
-				// Find & Delete Products, which are out of scope
-				deleteOutOfScopeProducts;	
-				IF  NOT (MC_BR_TrackingFrameDelete_0.Execute) AND Start																														    AND
-					((MpAxConveyor.Position >= LastProductPosition + ControlPanel.Input.ProductGap) 																							OR 
-					(MpAxConveyor.Position < LastProductPosition AND (LastProductPosition + ControlPanel.Input.ProductGap >= McCfgAxConveyor.BaseType.LinearPeriodic.PeriodSettings.Period))) 	THEN
-
-					addNewObjects;
-				END_IF	
-					
-			END_IF
 			
-			IF (MpAxConveyor.Error) THEN
+			IF MpAxConveyor.Error THEN
 				State := STATE_ERROR;
 				
 			ELSIF NOT Start THEN
@@ -106,26 +88,8 @@ PROGRAM _CYCLIC
 					
 	END_CASE
 	
-	
-
-	(* *************************************************************************************************************************** *)
-	(* *************************************************************************************************************************** *)
-	(* *************************************************************************************************************************** *)
-
-	// Function blocks call
 	MpAxConveyor(MpLink := LinkAxis, Parameters := ADR(AxParConveyor), ErrorReset := ControlPanel.Input.Reset);
-	
-	// Tracking commands
 	MC_BR_TrackingFrameCreate_0(TrackingPath := LinkTrackingPath);
-	MC_BR_TrackingPathGetFrames_0(TrackingPath := LinkTrackingPath);
-	MC_BR_TrackingFrameDelete_0(TrackingPath := LinkTrackingPath);
-	
-	// Update Scene Viewer positions
-	updateSceneViewerPositions;	
-
-	(* *************************************************************************************************************************** *)
-	(*                                                    RESET PARAMETER 														   *)
-	(* *************************************************************************************************************************** *)
 	
 	resetFUBs;
 

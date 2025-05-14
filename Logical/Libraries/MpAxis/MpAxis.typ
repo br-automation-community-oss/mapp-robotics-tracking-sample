@@ -317,6 +317,7 @@ mcSWITCH_ON ... The direction of movement is not permitted to be changed during 
 		Activate : BOOL; (*Option to move to defined position before stop*)
 		Deceleration : REAL := 25.0; (*Maximum deceleration [measurement units/s²]*)
 		Position : LREAL; (*Position to be stopped at*)
+		Acceleration : REAL := 0.0; (*Maximum acceleration [measurement units/s²]. When 0.0 then Deceleration is used *)
 	END_STRUCT;
 	MpAxisAutoTuneType : 	STRUCT 
 		Mode : MpAxisAutoTuneModeEnum; (*Tuning mode*)
@@ -448,7 +449,8 @@ Parameters left at "0" disable the associated advanced function. *)
 	MpAxisBasicConfigSectionEnum : 
 		(
 		mcAXB_CFG_SEC_ALL, (*Whole configuration structere is used*)
-		mcAXB_CFG_SEC_DRIVE_CTRL (*Only Drive.Controller section is used*)
+		mcAXB_CFG_SEC_DRIVE_CTRL, (*Only Drive.Controller section is used*)
+		mcAXB_CFG_SEC_MOVE_LIMITS (*Only Axis.MovementLimits section is used*)
 		);
 	MpAxisBasicConfigCmdEnum : 
 		(

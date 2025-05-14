@@ -1,47 +1,39 @@
 (*
 Link handling*)
 VAR
-	AxQ1 : UDINT; (*Memory to Q1*)
-	AxQ2 : UDINT; (*Memory to Q2*)
-	AxQ3 : UDINT; (*Memory to Q4*)
-	LinkConveyorIn : UDINT; (*Link to conveyor tracking path*)
-	LinkConveyorOut : UDINT; (*Link to conveyor tracking path*)
-	MpDeltaName : STRING[250]; (*Name of axGroup to find position in object hierachy*)
-	MpLinkDelta : UDINT; (*Link to delta*)
+	NameAxesGroup : STRING[250]; (*Name of axGroup to find position in object hierachy*)
+	LinkAxesGroup : UDINT; (*Link to delta*)
 END_VAR
 (*
-Robot Definition*)
+Robot Interface Definition*)
 VAR
-	MpDelta4Axis_X : MpDelta4Axis; (*Axis Fub*)
-	MpDelta4AxisPar_X : MpDelta4AxisParType; (*Axis Parameter*)
+	MC_BR_GroupStop_X : MC_GroupStop; (*Group object to home axis group*)
 	MC_BR_GroupHome_X : MC_BR_GroupHome_15; (*Group object to home axis group*)
+	MC_GroupReset_X : MC_GroupReset; (*Group object to home axis group*)
+	MC_BR_GroupPower_X : MC_BR_GroupPower; (*Group object to home axis group*)
+	MC_BR_GroupReadInfo_X : MC_BR_GroupReadInfo; (*Group object to home axis group*)
+	MC_BR_MoveProgram_X : MC_BR_MoveProgram; (*Group object to home axis group*)
+	MC_GroupContinue_0 : MC_GroupContinue; (*Continue Interpreter in case of a new tracking Object*)
+	MC_BR_TrackingStatus_PathGen_0 : MC_BR_TrackingStatus_PathGen; (*Tracking Path, read all objects on Path*)
+	MC_BR_ConditionalStop_0 : MC_BR_ConditionalStop;
+	MC_BR_PathInfo_0 : MC_BR_PathInfo;
 END_VAR
 (*
 Variables used handling objects and reading informations about the robot*)
 VAR
-	MC_GroupContinue_0 : MC_GroupContinue; (*Continue Interpreter in case of a new tracking Object*)
-	MC_BR_TrackingStatus_PathGen_0 : MC_BR_TrackingStatus_PathGen; (*Tracking Path, read all objects on Path*)
-	MC_BR_PathInfo_0 : MC_BR_PathInfo;
-	MC_BR_ConditionalStop_0 : MC_BR_ConditionalStop;
 	MC_BR_TrackingPathGetFrames_In : MC_BR_TrackingPathGetFrames; (*Tracking Path, read all objects on Path*)
 	MC_BR_TrackingPathGetFrames_Out : MC_BR_TrackingPathGetFrames; (*Tracking Path, read all objects on Path*)
 END_VAR
 (*
 Logic*)
 VAR
-	Start : BOOL;
-	State : DeviceStatesListEnum; (*Statemachine*)
-	i : INT; (*loop counter*)
-	j : INT; (*loop counter*)
-	XPosMax : LREAL; (*Figure out object with min distance to the robot*)
-	ProductsOut : ARRAY[0..MAX_TRACKING_FRAMES] OF McTrkFrmInfoType; (*List of all Frames*)
-	ProductsIn : ARRAY[0..MAX_TRACKING_FRAMES] OF McTrkFrmInfoType; (*List of all Frames*)
+	Reset : REFERENCE TO BOOL;
+	Start : REFERENCE TO BOOL;
+	State : RobotStatesEnum; (*Statemachine*)
 END_VAR
 (*
 Scene Viewer*)
 VAR
-	ActTrackingObjectDetails : REFERENCE TO ProductDetailsType; (*Scene Viewer*)
-	ProdDetails : REFERENCE TO ProductDetailsType; (*Scene Viewer*)
 	GripperClosed : BOOL; (*Scene Viewer*)
 	MultigripperClosedPos1 : BOOL; (*Scene Viewer*)
 	MultigripperClosedPos2 : BOOL; (*Scene Viewer*)
@@ -49,12 +41,6 @@ END_VAR
 (*
 ST Var*)
 VAR
-	MinPickPosIn : LREAL := 0; (*ST Var - Maximum reachable x position*)
-	MinPickPosOut : LREAL := 0; (*ST Var - Maximum reachable x position*)
-	MaxPickPosIn : LREAL := 0; (*ST Var - Maximum reachable x position*)
-	MaxPickPosOut : LREAL := 0; (*ST Var - Maximum reachable x position*)
-	NextTrackingObjectIn : UDINT; (*ST Var - ADR(ProductDetailsType)*)
-	NextTrackingObjectOut : UDINT; (*ST Var - ADR(ProductDetailsType)*)
 	M8 : BOOL; (*ST Var*)
 	M16 : BOOL; (*ST Var*)
 	M17 : BOOL; (*ST Var*)

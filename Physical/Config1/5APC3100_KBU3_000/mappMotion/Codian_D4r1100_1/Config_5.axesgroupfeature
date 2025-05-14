@@ -2,90 +2,17 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="Feature_Programs_D4r1100_1" Type="axesgroupfeature">
-    <Selector ID="Type" Value="Program">
-      <Selector ID="ModalDataBehaviour" Value="UseAxesGroupSettings" />
+    <Selector ID="Type">
       <Group ID="InitialSettings">
-        <Selector ID="InterpolationTypes" Value="LinearRapid" />
-        <Selector ID="PositionCoordinates" Value="Absolute" />
-        <Selector ID="CircleCoordinates" Value="Relative" />
-        <Selector ID="JACS_ACSProgramming" Value="JACS" />
-        <Selector ID="ContourConnection" Value="Inactive" />
         <Selector ID="AccuracyHoldDelays" Value="User defined">
           <Property ID="UserAxesDelay" Value="0.065" />
-          <Property ID="UserDelay" Value="0.0" />
         </Selector>
-        <Selector ID="ProgrammingUnits" Value="UseAxesGroupSettings" />
-        <Group ID="Feedrates">
-          <Selector ID="FeedPath" Value="Standard" />
-          <Selector ID="FeedCharacteristic" Value="StandardCharacteristic" />
-          <Selector ID="FeedType" Value="Feedrate" />
-          <Selector ID="FeedReduction" Value="Inactive" />
-          <Property ID="FeedrateValue" Value="0.0" />
-          <Property ID="InverseFeedrateValue" Value="0.0" />
-          <Property ID="FeedratePerRevValue" Value="0.0" />
-        </Group>
       </Group>
-      <Selector ID="DefaultLanguage" Value="BRGCode" />
       <Selector ID="Location" Value="User">
         <Group ID="UserLocation[1]">
-          <Property ID="FileDevice" Value="GProgram_SIM" />
-        </Group>
-        <Group ID="UserLocation[2]">
-          <Property ID="FileDevice" Value="GProgram" />
+          <Property ID="FileDevice" Value="CNC_Prg" />
         </Group>
       </Selector>
-      <Group ID="ProgramElements">
-        <Group ID="PVs">
-          <Group ID="PV[1]">
-            <Property ID="PvName" Value="::APP_Robot1:MaxPickPosIn" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="MaxPickPosIn" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-          <Group ID="PV[2]">
-            <Property ID="PvName" Value="::APP_Robot1:MinPickPosIn" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="MinPickPosIn" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-          <Group ID="PV[3]">
-            <Property ID="PvName" Value="::APP_Robot1:MaxPickPosOut" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="MaxPickPosOut" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-          <Group ID="PV[4]">
-            <Property ID="PvName" Value="::APP_Robot1:MinPickPosOut" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="MinPickPosOut" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-          <Group ID="PV[5]">
-            <Property ID="PvName" Value="::APP_Robot1:NextTrackingObjectIn" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="NextTrackingObjectIn" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-          <Group ID="PV[6]">
-            <Property ID="PvName" Value="::APP_Robot1:NextTrackingObjectOut" />
-            <Group ID="Advanced">
-              <Property ID="Alias" Value="NextTrackingObjectOut" />
-              <Selector ID="Synchronization" Value="Ip" />
-              <Selector ID="Reference" Value="No" />
-            </Group>
-          </Group>
-        </Group>
-      </Group>
     </Selector>
   </Element>
 </Configuration>
