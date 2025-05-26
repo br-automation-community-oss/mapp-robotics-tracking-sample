@@ -21,5 +21,7 @@ PROGRAM _INIT
 	
 	MC_BR_GroupReadCyclicPosition_X.CoordSystem := MC_BR_GetCoordSystemIdent_X.Ident;
 	
+	MC_BR_TrackingStatus_PathGen_X.Enable := TRUE;
+	
 	
 END_PROGRAM

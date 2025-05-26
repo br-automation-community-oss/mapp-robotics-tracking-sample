@@ -1,5 +1,5 @@
 VAR CONSTANT
-	UpperZLevel : LREAL := 100.0;	// Gripper up position
+	UpperZLevel : LREAL := 5.0;		// Gripper up position
 	LowerZLevel : LREAL := 0.0;		// Gripper down position
 	YProductPos : LREAL := 200;		// position in y coordinate where the product should be placed
 END_VAR
@@ -11,8 +11,6 @@ VAR
 	SynchPosDown1		: McPointType := (Pos:=(X:=   -25, Y:= 0, 			Z:= LowerZLevel));
 	SynchPosDown2		: McPointType := (Pos:=(X:=   25, Y:= 0, 			Z:= LowerZLevel));
 	StaticMoveDown		: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= 0));
-	MoveToPark : BOOL 	:= FALSE;
-		
 	FrameIn : McTrkFrmIdentType;
 	FrameOut : McTrkFrmIdentType;
 END_VAR
@@ -26,12 +24,10 @@ PROGRAM _MAIN
 		
 	WaitUntil(TrackingFrameSelect(FrameIn,'Infeed'));				    // hold interpreter until a new frame is available 
 	REPEAT		
-		MoveToPark := FALSE;
-			
 		TrackObjectR(FrameIn, SynchPosUp2, 50, 50);						// track on product
 		MoveLR(SynchPosDown2);											// move to the take position
-		WaitTime(0.04);													// Wait cause delay of gripper
 		SetM(34);														// Scene - remove product from belt, Close the gripper here
+		WaitTime(0.04);													// Wait cause delay of gripper
 		WaitALAP();
 		MoveLR(SynchPosUp2);											// move up to change position
 		
@@ -43,12 +39,13 @@ PROGRAM _MAIN
 			MoveLR(SynchPosUp1);										// move up to change position
 		END_IF
 		
-		TrackStopR(FixedPlace, ParkPos, 50, 50);						// Move to the fixed place Position
+		TrackStopR(MachineFrame, ParkPos, 50, 50);						// Move to the fixed place Position
 		MoveLR(StaticMoveDown);											// move to the take position
 		SetM(16);														// open the gripper here
 		SetM(17);														// open the gripper here
 		WaitTime(0.04);													// Wait cause delay of gripper
-		MoveLR(ParkPos);												// move to the take position
+		Feedrate(20000);
+		MoveL(ParkPos);													// move to the take position
 		WaitALAP();
 		
 		IF NOT TrackingFrameSelect(FrameIn,'Infeed') THEN				// Need to stop, no objects left								

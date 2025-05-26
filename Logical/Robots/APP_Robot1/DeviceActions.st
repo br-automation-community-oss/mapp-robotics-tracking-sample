@@ -51,3 +51,16 @@ ACTION updateConditionalStop:
 	MC_BR_ConditionalStop_0.Deactivate := MC_BR_ConditionalStop_0.Deactivate AND MC_BR_ConditionalStop_0.Activated;
 	
 END_ACTION
+
+ACTION calcPickRate:
+	
+	IF PickRateWaitForSync AND MC_BR_TrackingStatus_PathGen_X.TrackingState = mcPATHGEN_TS_SYNCHRONIZED	THEN
+		IF PickRateCount = 0 THEN
+			PickRateTimestamp := clock_ms();
+		ELSE
+			PickRate := 60 * (UDINT_TO_LREAL(PickRateCount) / (TIME_TO_LREAL(clock_ms() - PickRateTimestamp) / 1000.0));
+		END_IF
+		PickRateCount := PickRateCount + 1;
+	END_IF
+	PickRateWaitForSync := MC_BR_TrackingStatus_PathGen_X.TrackingState = mcPATHGEN_TS_SYNCHRONIZING;
+END_ACTION

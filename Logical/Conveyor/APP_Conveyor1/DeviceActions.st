@@ -5,24 +5,34 @@ ACTION addNewObjects:
 		LastProductPosition := LastProductPosition - Period;
 	END_IF
 	
-	IF MpAxConveyor.Position <  LastProductPosition	+ ControlPanel.Input.ProductGap THEN
+	IF MpAxConveyor.Position <  LastProductPosition	+ ProductGap THEN
 		RETURN;
 	END_IF
 	
-	MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := yRange/2 - UDINT_TO_LREAL(createCnt) * yRange;
-	
-	// create two products on request
-	IF createCnt > 0 OR yRange = 0 THEN
-		createCnt := 0;
-		LastProductPosition := MpAxConveyor.Position;
+	IF Multipick THEN	
+		MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := 80 - UDINT_TO_LREAL(createCnt MOD 2) * 160;
+		createCnt := createCnt + 1;
+		
+		IF createCnt MOD 2 = 0 THEN
+			LastProductPosition := MpAxConveyor.Position;
+		END_IF
+		
 	ELSE
-		createCnt := createCnt + 1;	
+		IF RandomCreation THEN
+			MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := (UINT_TO_LREAL((TIM_musec()*10) MOD 160) - 80);
+			MC_BR_TrackingFrameCreate_0.Parameters.Orientation.Angle3 := (UINT_TO_LREAL((TIM_musec()*10) MOD 178)-89);
+		ELSE
+			MC_BR_TrackingFrameCreate_0.Parameters.Translation.Y := 0;
+			MC_BR_TrackingFrameCreate_0.Parameters.Orientation.Angle3 := 0;
+		END_IF
+		LastProductPosition := MpAxConveyor.Position;
 	END_IF
+
 	
 	// simulate two diffent product types
 	MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 2#0001;
 	IF (TIM_ticks() MOD 2) = 1 THEN
-		MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 2#0010;
+		MC_BR_TrackingFrameCreate_0.Parameters.Attribute := 2#0011;
 	END_IF;
 		
 	// Add frame in the buffer

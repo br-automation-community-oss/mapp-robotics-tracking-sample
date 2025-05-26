@@ -22,6 +22,7 @@
       <Variable Name="ControlPanel">
         <Variable Name="Input">
           <Variable Name="StartMultipick" />
+          <Variable Name="StartMultipickRandom" />
         </Variable>
       </Variable>
     </GlobalVariables>

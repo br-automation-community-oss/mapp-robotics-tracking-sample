@@ -3,16 +3,10 @@
 <Configuration>
   <Element ID="MappMotionConfiguration" Type="mappmotioncfg">
     <Group ID="Processing">
-      <Property ID="ProcessingTaskClass" Value="1" />
+      <Selector ID="SymmetricMultiprocessing" Value="Used" />
     </Group>
-    <Group ID="Logger">
-      <Selector ID="SelectiveLogging" Value="Used">
-        <Property ID="StateChange" Value="Suppressed" />
-        <Selector ID="AdministrativeCommands" Value="Suppressed" />
-        <Selector ID="MovementCommands" Value="Suppressed" />
-        <Selector ID="InformationalCommands" Value="Suppressed" />
-        <Property ID="SuppressSubcomponents" Value="Inactive" />
-      </Selector>
+    <Group ID="Diagnostics">
+      <Selector ID="Snapshot" Value="NotUsed" />
     </Group>
   </Element>
 </Configuration>

@@ -13,6 +13,7 @@ PROGRAM _CYCLIC
 			MultigripperClosedPos1 := FALSE;
 			MultigripperClosedPos2 := FALSE;
 			GripperClosed := FALSE;
+			PickRateCount := 0;
 			
 		/////////////////////////////////////////////////////////////////////////////
 		ROBOT_RESET:
@@ -53,6 +54,7 @@ PROGRAM _CYCLIC
 
 			operateGripper;
 			updateConditionalStop;
+			calcPickRate;
 
 			IF MC_BR_MoveProgram_X.Done THEN
 					State := ROBOT_WAIT;
@@ -89,6 +91,7 @@ PROGRAM _CYCLIC
 	MC_BR_GroupReadCyclicPosition_X(AxesGroup := LinkAxesGroup);
 	MC_BR_TrackingFrameCreate_X(TrackingPath := LinkTrackingPath);
 	MC_BR_ReadCyclicPosition_X(Axis := LinkAxisTrackingPath);
+	MC_BR_TrackingStatus_PathGen_X(AxesGroup := LinkAxesGroup);
 	
 	
 	MC_GroupReset_X.Execute := FALSE;

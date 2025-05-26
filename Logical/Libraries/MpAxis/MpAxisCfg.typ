@@ -615,8 +615,23 @@ TYPE
 		DigitalInputs : MpAXBDrvDigInType; (*Various digital input functionalities e.g. like homing switch or triggers*)
 		EncoderLink : MpAXBDrvEncLinkType; (*Encoder Link*)
 	END_STRUCT;
+	MpAXBFeatRefType : STRUCT (*Feature references*)
+		ConfigType : McCfgTypeEnum; (*Feature type*)
+		Name : STRING[250]; (*Reference name*)
+	END_STRUCT;
+	MpAXBFeatAxFeatType : STRUCT (*Axis feature references*)
+		Reference : ARRAY[0..9] OF MpAXBFeatRefType; (*Feature references*)
+	END_STRUCT;
+	MpAXBFeatChFeatType : STRUCT (*Channel feature references, only for AcpAx. For all axes sharing the channel features (Real axis and virtual axis) settings should be the same otherwise it will override the other axis settings*)
+		Reference : ARRAY[0..9] OF MpAXBFeatRefType; (*Feature references*)
+	END_STRUCT;
+	MpAXBFeatType : STRUCT (*Used feature configuration*)
+		AxisFeatures : MpAXBFeatAxFeatType; (*Axis feature references*)
+		ChannelFeatures : MpAXBFeatChFeatType; (*Channel feature references, only for AcpAx. For all axes sharing the channel features (Real axis and virtual axis) settings should be the same otherwise it will override the other axis settings*)
+	END_STRUCT;
 	MpAxisBasicConfigType : STRUCT (*General purpose datatype*)
 		Axis : MpAXBAxType; (*Axis configuration*)
 		Drive : MpAXBDrvType; (*Drive configuration*)
+		Features : MpAXBFeatType; (*Used feature configuration*)
 	END_STRUCT;
 END_TYPE

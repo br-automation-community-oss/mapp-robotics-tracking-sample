@@ -4,7 +4,7 @@
   <TaskClass Name="Cyclic#1">
     <Task Name="APP_Convey" Source="Conveyor.APP_Conveyor1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
     <Task Name="APP_Conve1" Source="Conveyor.APP_Conveyor2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
-    <Task Name="APP_Robot1" Source="Robots.Robot1.APP_Robot1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="APP_Robot1" Source="Robots.APP_Robot1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />

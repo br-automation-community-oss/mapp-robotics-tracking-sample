@@ -17,6 +17,7 @@ VAR
 	MC_BR_GroupReadInfo_X : MC_BR_GroupReadInfo; (*Group object to home axis group*)
 	MC_BR_MoveProgram_X : MC_BR_MoveProgram; (*Group object to home axis group*)
 	MC_BR_ConditionalStop_0 : MC_BR_ConditionalStop;
+	MC_BR_TrackingStatus_PathGen_X : MC_BR_TrackingStatus_PathGen;
 	MC_BR_PathInfo_0 : MC_BR_PathInfo;
 	MC_BR_GroupReadCyclicPosition_X : MC_BR_GroupReadCyclicPosition_15;
 END_VAR
@@ -30,8 +31,8 @@ END_VAR
 (*
 Logic*)
 VAR
-	Reset : REFERENCE TO BOOL;
-	Start : REFERENCE TO BOOL;
+	Reset : BOOL;
+	Start : BOOL;
 	State : RobotStatesEnum; (*Statemachine*)
 END_VAR
 (*
@@ -54,5 +55,9 @@ END_VAR
 (*
 Monitorin Elements*)
 VAR
+	PickRateWaitForSync : BOOL;
+	PickRateCount : UDINT;
+	PickRateTimestamp : TIME;
+	PickRate : LREAL;
 	IPMonitor : McProgIntIpMonitorType; (*Monitor to get interpreter line*)
 END_VAR
