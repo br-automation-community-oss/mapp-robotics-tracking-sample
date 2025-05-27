@@ -8,7 +8,7 @@
     <Group ID="GlobalCoordinateSystem">
       <Group ID="Object[1]">
         <Selector ID="Type">
-          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100_1" />
+          <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_1" />
         </Selector>
       </Group>
       <Group ID="Object[2]">

@@ -189,6 +189,23 @@ TYPE
 		Level: ARRAY [0..9] OF BOOL; (*Skip block levels*)
 	END_STRUCT;
 
+	McPathGenWorkspaceStatusEnum :
+		(
+		mcPATHGEN_WS_OK, (*In Workspace*)
+		mcPATHGEN_WS_AXES_VIOLATION, (*Axis limit reached*)
+		mcPATHGEN_WS_JOINTAXES_VIOLATION, (*Joint axis limit reached*)
+		mcPATHGEN_WS_SLAVEAXES_VIOLATION, (*Slave axis limit reached*)
+		mcPATHGEN_WS_WORKSPACE_VIOLATION, (*Workspace boundary reached*)
+		mcPATHGEN_WS_SAFESPACE_VIOLATION, (*Safe space workspace boundary reached*)
+		mcPATHGEN_WS_SELF_COLLISION, (*Self collision imminent*)
+		mcPATHGEN_WS_WORKRANGE_VIOLATION (*Working range boundary reached*)
+		);
+
+	McPathGenMonElemWorkspaceType : STRUCT (*Monitoring Element: Workspace*)
+		InWorkspace : BOOL; (*In workspace*)
+		WorkspaceStatus : McPathGenWorkspaceStatusEnum; (*Workspace status*)
+	END_STRUCT;
+
 	McPathGenMonElemBasicMonType : STRUCT (*Monitoring Element: Basic monitor*)
 		CurrentProgram : McPathGenMonElemCurrentPrgType; (**)
 		LineNumber : UDINT; (**)
@@ -389,6 +406,7 @@ TYPE
 		TrackedObject : McPathGenTrackedObjectType; (*info tracked object*)
 		TrackedFrame : McPathGenTrackedFrameType; (*info tracked frame*)
 		ErrorStruct : McPathGenErrorStructType; (*geometric error*)
+		MotionBehaviour : McPathGenMotionBehaviourType; (*motion behaviour limit states*)
 	END_STRUCT;
 
 	McPathGenTrackedObjectType : 	STRUCT
@@ -402,6 +420,11 @@ TYPE
 
 	McPathGenErrorStructType : 	STRUCT
 		ActualError : LREAL; (*Actual geometric tracking error*)
+	END_STRUCT;
+
+	McPathGenMotionBehaviourType : 	STRUCT
+		AdjustedVelocity : BOOL; (*Actual velocity limit has been adjusted, to avoid moving out of workspace*)
+		AdjustedVelocityToZero : BOOL; (*Actual velocity limit has been adjusted to zero, to avoid moving out of workspace*)
 	END_STRUCT;
 
 END_TYPE

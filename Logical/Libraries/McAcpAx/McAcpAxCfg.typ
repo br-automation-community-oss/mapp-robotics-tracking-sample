@@ -1595,11 +1595,21 @@ TYPE
 	McACCTMSgenType : STRUCT (*Selects if set value generation is done in the faster position controller cycle*)
 		Type : McACCTMSgenEnum; (*Set value generation selector setting*)
 	END_STRUCT;
+	McACCTMIOsEnum :
+		( (*IOs on plug-in cards selector setting*)
+		mcACCTMIOs_STD := 0, (*Standard - Standard: 400µs*)
+		mcACCTMIOs_CYCLE_TIME_OF_CTRL := 1 (*Cycle time of controller - Position controller cycle time*)
+		);
+	McACCTMIOsType : STRUCT (*Selects if DIO/AIOs on plug-in cards are handled in faster position controller cycle*)
+		Type : McACCTMIOsEnum; (*IOs on plug-in cards selector setting*)
+	END_STRUCT;
 	McACCTMAdvType : STRUCT (*Type mcACCTM_ADV settings*)
 		SetValueGeneration : McACCTMSgenType; (*Selects if set value generation is done in the faster position controller cycle*)
+		IOsOnPlugInCards : McACCTMIOsType; (*Selects if DIO/AIOs on plug-in cards are handled in faster position controller cycle*)
 	END_STRUCT;
 	McACCTMPwrType : STRUCT (*Type mcACCTM_PWR settings*)
 		SetValueGeneration : McACCTMSgenType; (*Selects if set value generation is done in the faster position controller cycle*)
+		IOsOnPlugInCards : McACCTMIOsType; (*Selects if DIO/AIOs on plug-in cards are handled in faster position controller cycle*)
 	END_STRUCT;
 	McACCTMType : STRUCT (*Controller cascade cycle time mode; Position/Speed/Current; Check documentation for limitations*)
 		Type : McACCTMEnum; (*Cycle time mode selector setting*)

@@ -7,5 +7,6 @@
     <Object Type="File">PlaceWithConditionalStop.st</Object>
     <Object Type="File">PrePalletizing.st</Object>
     <Object Type="File">Sorting.st</Object>
+    <Object Type="File">MultipickRandom.st</Object>
   </Objects>
 </Package>

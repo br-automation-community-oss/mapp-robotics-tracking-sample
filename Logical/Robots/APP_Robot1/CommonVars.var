@@ -1,0 +1,63 @@
+(*
+Link handling*)
+VAR
+	NameAxesGroup : STRING[250]; (*Name of axGroup to find position in object hierachy*)
+	LinkAxesGroup : UDINT; (*Link to delta*)
+	NameTrackingPath : STRING[250];
+	LinkAxisTrackingPath : UDINT;
+	LinkTrackingPath : UDINT;
+END_VAR
+(*
+Robot Interface Definition*)
+VAR
+	MC_BR_GroupStop_X : MC_GroupStop; (*Group object to home axis group*)
+	MC_BR_GroupHome_X : MC_BR_GroupHome_15; (*Group object to home axis group*)
+	MC_GroupReset_X : MC_GroupReset; (*Group object to home axis group*)
+	MC_BR_GroupPower_X : MC_BR_GroupPower; (*Group object to home axis group*)
+	MC_BR_GroupReadInfo_X : MC_BR_GroupReadInfo; (*Group object to home axis group*)
+	MC_BR_MoveProgram_X : MC_BR_MoveProgram; (*Group object to home axis group*)
+	MC_BR_ConditionalStop_0 : MC_BR_ConditionalStop;
+	MC_BR_TrackingStatus_PathGen_X : MC_BR_TrackingStatus_PathGen;
+	MC_BR_PathInfo_0 : MC_BR_PathInfo;
+	MC_BR_GroupReadCyclicPosition_X : MC_BR_GroupReadCyclicPosition_15;
+END_VAR
+(*
+Variables used handling objects and reading informations about the robot*)
+VAR
+	MC_BR_GetCoordSystemIdent_X : MC_BR_GetCoordSystemIdent;
+	MC_BR_TrackingFrameCreate_X : MC_BR_TrackingFrameCreate; (*Tracking Path, read all objects on Path*)
+	MC_BR_ReadCyclicPosition_X : MC_BR_ReadCyclicPosition; (*Tracking Path, read all objects on Path*)
+END_VAR
+(*
+Logic*)
+VAR
+	Reset : BOOL;
+	Start : BOOL;
+	State : RobotStatesEnum; (*Statemachine*)
+END_VAR
+(*
+Scene Viewer*)
+VAR
+	GripperClosed : BOOL; (*Scene Viewer*)
+	MultigripperClosedPos1 : BOOL; (*Scene Viewer*)
+	MultigripperClosedPos2 : BOOL; (*Scene Viewer*)
+END_VAR
+(*
+ST Var*)
+VAR
+	M16 : BOOL; (*ST Var*)
+	M17 : BOOL; (*ST Var*)
+	M32 : BOOL; (*ST Var*)
+	M33 : BOOL; (*ST Var*)
+	M34 : BOOL; (*ST Var*)
+	M40 : BOOL; (*ST Var*)
+END_VAR
+(*
+Monitorin Elements*)
+VAR
+	PickRateWaitForSync : BOOL;
+	PickRateCount : UDINT;
+	PickRateTimestamp : TIME;
+	PickRate : LREAL;
+	IPMonitor : McProgIntIpMonitorType; (*Monitor to get interpreter line*)
+END_VAR

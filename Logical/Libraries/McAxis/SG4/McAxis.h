@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McAxis 6.3.0 */
+/* McAxis 6.4.0 */
 
 #ifndef _MCAXIS_
 #define _MCAXIS_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McAxis_VERSION
-#define _McAxis_VERSION 6.3.0
+#define _McAxis_VERSION 6.4.0
 #endif
 
 #include <bur/plctypes.h>
@@ -388,6 +388,12 @@ typedef enum McLimitLoadModeEnum
 {	mcLL_WITH_FEED_FORWARD,
 	mcLL_WITHOUT_FEED_FORWARD
 } McLimitLoadModeEnum;
+
+typedef enum McLimitLoadStopModeEnum
+{	mcLLSM_DEFAULT = 0,
+	mcLLSM_USER_DEFINED = 1,
+	mcLLSM_MAX_TORQUE = 2
+} McLimitLoadStopModeEnum;
 
 typedef enum McAcpAxAutoTuneOrientationEnum
 {	mcACPAX_ORIENTATION_HORIZONTAL,
@@ -1105,6 +1111,8 @@ typedef struct McAdvBrLimitLoadCamParType
 	signed long LoadFactorPos;
 	signed long PositionFactorNeg;
 	signed long LoadFactorNeg;
+	enum McLimitLoadStopModeEnum StopMode;
+	float StopTorque;
 } McAdvBrLimitLoadCamParType;
 
 typedef struct McMechDevCompDataType

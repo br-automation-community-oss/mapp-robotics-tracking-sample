@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAxesGroup_D4r1100R_1" Type="axesgroup">
+    <Selector ID="Type" Value="PathGenAxesGroup">
+      <Property ID="ProcessingTaskClass" Value="1" />
+      <Group ID="PhysicalAxes">
+        <Group ID="JointAxes">
+          <Group ID="JointAxis[1]">
+            <Property ID="AxisRef" Value="gAxisQ1_D4r1100R_1" />
+          </Group>
+          <Group ID="JointAxis[2]">
+            <Property ID="AxisRef" Value="gAxisQ2_D4r1100R_1" />
+          </Group>
+          <Group ID="JointAxis[3]">
+            <Property ID="AxisRef" Value="gAxisQ3_D4r1100R_1" />
+          </Group>
+          <Group ID="JointAxis[4]">
+            <Property ID="Name" Value="QC" />
+            <Property ID="AxisRef" Value="gAxisQC_D4r1100R_1" />
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="MechanicalSystem">
+        <Property ID="MechSysRef" Value="MechSys_D4r1100R_1" />
+      </Group>
+      <Group ID="BasicSettings">
+        <Group ID="GeometryPlanning">
+          <Property ID="MaxTangentialTransitionDeviation" Value="0.05" />
+        </Group>
+        <Selector ID="TrajectoryPlanning">
+          <Selector ID="LimitCheckResolution">
+            <Property ID="Time" Value="0.005" />
+          </Selector>
+          <Selector ID="BufferTime">
+            <Property ID="Time" Value="0.05" />
+          </Selector>
+        </Selector>
+        <Group ID="Miscellaneous">
+          <Group ID="TimeStretchOverride">
+            <Selector ID="JerkSuppression" Value="Basic">
+              <Property ID="AdaptationTime" Value="0.3" />
+            </Selector>
+          </Group>
+        </Group>
+      </Group>
+      <Group ID="StopReaction">
+        <Group ID="AxisError">
+          <Selector ID="AxisReaction" Value="DynamicStop" />
+        </Group>
+      </Group>
+      <Group ID="AxesGroupFeatures">
+        <Property ID="FeatureRef[1]" Value="Feature_Programs_D4r1100R_1" />
+        <Property ID="FeatureRef[2]" Value="Feature_FrameHierachy" />
+        <Property ID="FeatureRef[3]" Value="Feature_MFunctions" />
+        <Property ID="FeatureRef[4]" Value="Feature_PathDefRobot" />
+        <Property ID="FeatureRef[5]" Value="Feature_Selection" />
+        <Property ID="FeatureRef[6]" Value="Feature_TrackingRobot" />
+        <Property ID="FeatureRef[7]" Value="Feature_WorkspaceMonitoring" />
+      </Group>
+    </Selector>
+  </Element>
+</Configuration>

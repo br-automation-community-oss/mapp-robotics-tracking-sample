@@ -31,7 +31,7 @@ PROGRAM _CYCLIC
 				MpAxConveyor.Home := TRUE;
 				
 			ELSIF MpAxConveyor.Info.CommunicationReady THEN
-				LastProductPosition := MpAxConveyor.Position - ControlPanel.Input.ProductGap;
+				LastProductPosition := MpAxConveyor.Position - ProductGap;
 				MC_BR_TrackingFrameDelete_0.Execute := TRUE;
 				State := STATE_PRODUCTION;
 			END_IF
@@ -41,11 +41,11 @@ PROGRAM _CYCLIC
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			// Move Belt with selected speed
-			IF ControlPanel.Input.VelocityProduction <> AxParConveyor.Velocity THEN
+			IF AxParConveyor.Velocity  <> SetVelocity THEN
 				// If velocity ist not up to date, update Conveyer Velocity to the Velocity set at the ControlPanel
 				MpAxConveyor.Update := TRUE;
 			END_IF
-			AxParConveyor.Velocity := ControlPanel.Input.VelocityProduction;
+			AxParConveyor.Velocity := SetVelocity;
 			MpAxConveyor.MoveVelocity := TRUE;
 			
 			IF NOT MC_BR_TrackingFrameCreate_0.Busy THEN
@@ -78,7 +78,7 @@ PROGRAM _CYCLIC
 			MpAxConveyor.MoveVelocity := FALSE;
 			MpAxConveyor.Power := FALSE;
 		
-			IF ControlPanel.Input.Reset AND MpAxConveyor.Error AND MpAxConveyor.CommandBusy THEN
+			IF Reset AND MpAxConveyor.Error AND MpAxConveyor.CommandBusy THEN
 				MpAxConveyor.ErrorReset := TRUE;
 				
 			ELSIF Start AND NOT(MpAxConveyor.Error) AND NOT(MpAxConveyor.CommandBusy) THEN
@@ -87,7 +87,7 @@ PROGRAM _CYCLIC
 					
 	END_CASE
 	
-	MpAxConveyor(MpLink := LinkAxis, Parameters := ADR(AxParConveyor), ErrorReset := ControlPanel.Input.Reset);
+	MpAxConveyor(MpLink := LinkAxis, Parameters := ADR(AxParConveyor), ErrorReset := Reset);
 	MC_BR_TrackingFrameCreate_0(TrackingPath := LinkTrackingPath);
 	MC_BR_TrackingFrameDelete_0(TrackingPath := LinkTrackingPath);
 	

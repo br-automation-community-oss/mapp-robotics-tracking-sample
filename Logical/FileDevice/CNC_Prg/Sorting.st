@@ -31,15 +31,15 @@ PROGRAM _MAIN
 		MoveLR(SynchPosDown);											// move to the take position
 		WaitALAP();														// hold interpreter
 		// Close the gripper here	
-		SetM(32);														// Scene - remove product from belt
 		WaitTime(0.04);													// Wait until gripper opens
+		SetM(32);														// Scene - remove product from belt
 		MoveLR(SynchPosUp);												// move up to change frame
 		
 		IF TrackingFrameGetAttribute(FrameIn) = 1 THEN					// sort out objects of type 1					
 			TrackStopR(FixedPlace, ParkPos, 50, 50);					// Move to the fixed place Position
 			MoveLR(StaticMoveDown);										// move to the take position
-			SetM(16);													// open the gripper here
 			WaitTime(0.04);												// Wait until gripper opens
+			SetM(16);													// open the gripper here
 			MoveLR(ParkPos);											// move to the take position
 			WaitALAP();
 			
@@ -52,12 +52,12 @@ PROGRAM _MAIN
 			WaitUntil(TrackingFrameSelect(FrameOut,'Outfeed'));			// hold interpeter until place frame has been selected
 			TrackObjectR(FrameOut, SynchPosUp, 50, 50);	// move to place position
 			MoveLR(SynchPosDown);										// move down on place position
-			WaitALAP();													// hold interpreter 
 			
 			SetM(16);													// Scene - place product on belt, Open the gripper here
 			WaitTime(0.04);												// Wait until gripper opens
-			TrackingFrameSetAttribute(FrameOut, 4);						// Transfer attribute value
 			MoveLR(SynchPosUp);											// move up to change frame
+			WaitALAP();													// hold interpreter 
+			TrackingFrameSetAttribute(FrameOut, 4);						// Transfer attribute value
 			
 			IF NOT TrackingFrameSelect(FrameIn,'Infeed') THEN			// Need to stop, no objects left
 				TrackStopR(MachineFrame, ParkPos, 50, 50);				// Move to a static frame

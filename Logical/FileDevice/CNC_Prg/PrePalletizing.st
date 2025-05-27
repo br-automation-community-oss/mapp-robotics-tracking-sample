@@ -46,8 +46,7 @@ PROGRAM _MAIN
 		MoveLR(SynchPosUpSideward);									// move up to change frame
 		
 		IF NOT TrackingFrameSelect(FrameIn,'Infeed') THEN			// Need to stop, no objects left
-			TrackStopR(MachineFrame, ParkPos, 50, 50);				// Move to a static frame
-			MoveLR(ParkPos);										// move to static park position										
+			TrackStopR(MachineFrame, ParkPos, 50, 50);				// Move to a static frame							
 			WaitEndMove();											// sync interpreter and program 
 			WaitUntil(TrackingFrameSelect(FrameIn,'Infeed'));		// hold interpreter until a new frame is available 
 		END_IF

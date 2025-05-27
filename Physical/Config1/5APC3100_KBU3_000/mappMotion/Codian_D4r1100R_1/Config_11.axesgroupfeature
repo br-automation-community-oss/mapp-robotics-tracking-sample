@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="Feature_Programs_D4r1100R_1" Type="axesgroupfeature">
+    <Selector ID="Type">
+      <Group ID="InitialSettings">
+        <Selector ID="AccuracyHoldDelays" Value="User defined">
+          <Property ID="UserAxesDelay" Value="0.03" />
+        </Selector>
+      </Group>
+      <Selector ID="Location" Value="User">
+        <Group ID="UserLocation[1]">
+          <Property ID="FileDevice" Value="CNC_Prg" />
+        </Group>
+      </Selector>
+    </Selector>
+  </Element>
+</Configuration>

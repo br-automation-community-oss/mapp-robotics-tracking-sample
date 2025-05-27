@@ -139,7 +139,7 @@
               </Selector>
             </Selector>
             <Selector ID="Filter[3]" Value="AttributeMask">
-              <Property ID="Mask" Value="2#0011" />
+              <Property ID="Mask" Value="2#00000000000000000000000000000001" />
             </Selector>
           </Group>
         </Selector>

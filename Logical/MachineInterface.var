@@ -9,5 +9,5 @@ VAR CONSTANT
 END_VAR
 (*Internal states*)
 VAR
-	ControlPanel : ControlPanelType := (Input:=(Reset:=FALSE,VelocityProduction:=300,ProductGap:=500,DeletePosition:=3000)); (*Machine interface (inputs/outputs)*)
+	ControlPanel : ControlPanelType := (Input:=(Reset:=FALSE,VelocityProduction:=300,ProductGap:=500)); (*Machine interface (inputs/outputs)*)
 END_VAR
