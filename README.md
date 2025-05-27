@@ -21,6 +21,7 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 * Automation Studio/Runtime 6.4.x
 * mapp Motion 6.4.x
 * Scene Viewer 6.1.x
+
 <img src="doc/img/Requirements.png" width="400"/>
 
 ## How-to
