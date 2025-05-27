@@ -10,6 +10,7 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
   * Standard pick&place
   * Pick&place with conditional stop
   * Pick&place with Multigripper
+  * Pick&place with Multigripper and random orientation
   * Pre-palletizing
   * Sorting of producs
 * Automatic scene generation for Scene Viewer 6.x
@@ -17,8 +18,8 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 
 ## Requirements
 
-* Automation Studio/Runtime 6.3.x
-* mapp Motion 6.3.x
+* Automation Studio/Runtime 6.4.x
+* mapp Motion 6.4.x
 * Scene Viewer 6.1.x
 <img src="doc/img/Requirements.png" width="400"/>
 
@@ -43,6 +44,7 @@ The NC Programs (Track.st) are located directly in the project folder root. The 
 | Sorting | While sorting, red an blue products are classified. The red products are placed on the outfeed belt and the blue products are placed at the fixed place. <br/><img src="doc/img/Sorting.svg"/><br/><img src="doc/img/Sorting.png"/> | <img src="doc/img/StartSorting.png"/> |
 | Pick and Place | The pick and place demo demonstrates picking a product from a moving belt and placing the product on another belt. <br/><img src="doc/img/PickNPlace.svg" /><br/><img src="doc/img/PickNPlace.png" /> | <img src="doc/img/StartPickNPlace.png" /> |
 | Multipick | The Multipick-Example takes products from two different frame and places the products at a fixed place position. <br/><img src="doc/img/Multipick.svg" /><br/><img src="doc/img/Multipick.png" /> | <img src="doc/img/StartMultipick.png" /> |
+| Multipick Random | The Multipick-Example takes products from two different random positions and places the products at a fixed place position. <br/><img src="doc/img/MultipickRand.svg" /><br/><img src="doc/img/MultipickRand.png" /> | <img src="doc/img/StartMultipickRand.png" /> |
 | Conditional Stop | The conditional stop demo shows application with a fixed place position which may be locked with a conditional stop.<br/> In the demo the position is locked every 1,5 seconds for 1,5 seconds.  <br/><img src="doc/img/ConditionalStop.svg" /><br/><img src="doc/img/ConditionalStop.png" /> | <img src="doc/img/StartConditionalStop.png" /> |
 | Pre Palletizing | During pre-palletizing the robot stays synchronized to one frame. The product is shifted with movement commands on that frame. <br/><img src="doc/img/PrePalletizing.svg" /><br/><img src="doc/img/PrePalletizing.png" /> | <img src="doc/img/StartPrePalletizing.png" /> |
 
