@@ -58,6 +58,6 @@ VAR
 	PickRateWaitForSync : BOOL;
 	PickRateCount : UDINT;
 	PickRateTimestamp : TIME;
+	PickRateTrackingPath : REFERENCE TO McTrackingPathType;
 	PickRate : LREAL;
-	IPMonitor : McProgIntIpMonitorType; (*Monitor to get interpreter line*)
 END_VAR

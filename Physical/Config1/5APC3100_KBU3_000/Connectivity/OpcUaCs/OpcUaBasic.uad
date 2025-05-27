@@ -23,6 +23,7 @@
         <Variable Name="Input">
           <Variable Name="StartMultipick" />
           <Variable Name="StartMultipickRandom" />
+          <Variable Name="Reset" />
         </Variable>
       </Variable>
     </GlobalVariables>
@@ -32,13 +33,6 @@
       </Variable>
     </Task>
     <Task Name="APP_Robot1">
-      <Variable Name="IPMonitor">
-        <Variable Name="NcblockL2" />
-        <Variable Name="NcblockL1" />
-        <Variable Name="Ncblock" />
-        <Variable Name="NcblockN1" />
-        <Variable Name="NcblockN2" />
-      </Variable>
       <Variable Name="MC_BR_ConditionalStop_0">
         <Variable Name="Activated" />
       </Variable>

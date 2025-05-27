@@ -2,27 +2,16 @@
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
   <Element ID="Workspace_1" Type="workspace">
-    <Group ID="WorkSpace">
-      <Group ID="Cuboids" />
-      <Group ID="HalfSpaces" />
-      <Group ID="TruncatedCones" />
-    </Group>
     <Group ID="SafeSpace">
       <Group ID="Cuboids">
         <Group ID="Cuboid[1]">
           <Property ID="ID" Value="1" />
           <Group ID="Translation">
-            <Property ID="X" Value="-1500" />
+            <Property ID="X" Value="-550" />
             <Property ID="Y" Value="-500" />
-            <Property ID="Z" Value="0.0" />
-          </Group>
-          <Group ID="Orientation">
-            <Property ID="Angle1" Value="0.0" />
-            <Property ID="Angle2" Value="0.0" />
-            <Property ID="Angle3" Value="0.0" />
           </Group>
           <Group ID="Dimension">
-            <Property ID="X" Value="1000" />
+            <Property ID="X" Value="50" />
             <Property ID="Y" Value="1000" />
             <Property ID="Z" Value="400" />
           </Group>
@@ -32,22 +21,14 @@
           <Group ID="Translation">
             <Property ID="X" Value="500" />
             <Property ID="Y" Value="-500" />
-            <Property ID="Z" Value="0.0" />
-          </Group>
-          <Group ID="Orientation">
-            <Property ID="Angle1" Value="0.0" />
-            <Property ID="Angle2" Value="0.0" />
-            <Property ID="Angle3" Value="0.0" />
           </Group>
           <Group ID="Dimension">
-            <Property ID="X" Value="1000" />
+            <Property ID="X" Value="50" />
             <Property ID="Y" Value="1000" />
             <Property ID="Z" Value="400" />
           </Group>
         </Group>
       </Group>
-      <Group ID="HalfSpaces" />
-      <Group ID="TruncatedCones" />
     </Group>
   </Element>
 </Configuration>

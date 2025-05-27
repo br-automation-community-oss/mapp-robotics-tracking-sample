@@ -7,6 +7,9 @@
         <Selector ID="OutOfWorkspaceSynchronisation">
           <Property ID="Clearance" Value="10" />
         </Selector>
+        <Selector ID="OutOfWorkspaceSychronized" Value="AdjustedVelocity">
+          <Property ID="Clearance" Value="10" />
+        </Selector>
       </Group>
     </Selector>
   </Element>
@@ -59,15 +62,6 @@
         <Selector ID="Blocking" Value="Disabled" />
         <Selector ID="InSimulation" Value="Set" />
         <Property ID="PvMapping" Value="::APP_Robot1:M40" />
-      </Group>
-    </Selector>
-  </Element>
-  <Element ID="Feature_Monitoring" Type="axesgroupfeature">
-    <Selector ID="Type" Value="MonitoringElements">
-      <Group ID="SingleElements">
-        <Selector ID="SingleElement[1]" Value="Interpreter">
-          <Property ID="IpMonitor" Value="::APP_Robot1:IPMonitor" />
-        </Selector>
       </Group>
     </Selector>
   </Element>
@@ -132,7 +126,7 @@
                   <Property ID="Z" Value="-1000" />
                 </Group>
                 <Group ID="Dimensions">
-                  <Property ID="Length" Value="1500" />
+                  <Property ID="Length" Value="1300" />
                   <Property ID="Width" Value="1000" />
                   <Property ID="Height" Value="1000" />
                 </Group>
@@ -166,6 +160,11 @@
           </Group>
         </Selector>
       </Group>
+    </Selector>
+  </Element>
+  <Element ID="Feature_Programs" Type="axesgroupfeature">
+    <Selector ID="Type">
+      <Selector ID="DefaultLanguage" Value="ST" />
     </Selector>
   </Element>
 </Configuration>
