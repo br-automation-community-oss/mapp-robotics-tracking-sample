@@ -5,6 +5,9 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 
 [DemoVideo.mp4](doc/vid/DemoVideo.webm)
 
+<br/><img src="doc/img/Application.png" />
+
+
 ### Features
 * 5 variants of a delta application
   * Standard pick&place
@@ -22,7 +25,7 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 * mapp Motion 6.4.x
 * Scene Viewer 6.1.x
 
-<img src="doc/img/Requirements.png" width="400"/>
+<img src="doc/img/Requirements.png" />
 
 ## How-to
 * [Download the last release](https://github.com/br-automation-com/mapp-robotics-tracking-sample/releases)↑ of project and open with AS
