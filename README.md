@@ -3,9 +3,9 @@
 ## Introduction
 This sample serves as an introduction to the mapp Robotics tracking technology.
 
-[DemoVideo.mp4](doc/vid/DemoVideo.webm)
+[DemoVideo.mp4](doc/vid/DemoVideo.mp4)
 
-<br/><img src="doc/img/Application.png" />
+<br/><img width="50%" src="doc/img/Application.png" />
 
 
 ### Features
@@ -25,10 +25,10 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 * mapp Motion 6.4.x
 * Scene Viewer 6.1.x
 
-<img src="doc/img/Requirements.png" />
+<br/><img src="doc/img/Requirements.png" />
 
 ## How-to
-* [Download the last release](https://github.com/br-automation-com/mapp-robotics-tracking-sample/releases)↑ of project and open with AS
+* [Download the last release](https://github.com/br-automation-com/mapp-robotics-tracking-sample/releases) of project and open with AS
 * Enable simulation, build and transfer the project. Wait for RUN.
 * Open a watch window and use the ::ControlPanel:Input structure to start different scenarios
 * Watch the action in Scene Viewer (User & Password: gmctest)
@@ -36,10 +36,10 @@ This sample serves as an introduction to the mapp Robotics tracking technology.
 
 ### Start application demo
 To select an application add the variable ControlPanel to the watch window. 
-<img src="doc/img/StartApplication.png" width="700"/>
+<br/><img src="doc/img/StartApplication.png" width="700"/>
 
 The NC Programs (Track.st) are located directly in the project folder root. The file device reference is set to the FileDevices folder.
-<img src="doc/img/FileDevice.png" width="400"/>
+<br/><img src="doc/img/FileDevice.png" width="400"/>
 
 
 ## Feature Details

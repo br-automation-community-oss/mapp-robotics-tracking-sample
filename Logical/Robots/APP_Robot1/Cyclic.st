@@ -100,9 +100,5 @@ PROGRAM _CYCLIC
 	MC_BR_GroupStop_X.Execute := FALSE;
 	MC_BR_TrackingFrameCreate_X.Execute := FALSE;
 	
-	IF NOT IPMonitor.Handshake THEN
-		IPMonitor.Handshake := TRUE;
-	END_IF
-	
 			 
 END_PROGRAM

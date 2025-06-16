@@ -11,12 +11,12 @@ ACTION DefineLinks:
 	
 	Reset := ControlPanel.Input.Reset;
 	Start :=
-	(ControlPanel.Input.StartMultipick OR 
-	ControlPanel.Input.StartPickNPlace OR 
-	ControlPanel.Input.StartPlaceWithConditionalStop OR 
-	ControlPanel.Input.StartPrePalletizing OR 
-	ControlPanel.Input.StartSorting OR
-	ControlPanel.Input.StartMultipickRandom);
+		(ControlPanel.Input.StartMultipick OR 
+		ControlPanel.Input.StartPickNPlace OR 
+		ControlPanel.Input.StartPlaceWithConditionalStop OR 
+		ControlPanel.Input.StartPrePalletizing OR 
+		ControlPanel.Input.StartSorting OR
+		ControlPanel.Input.StartMultipickRandom);
 	
 	IF ControlPanel.Input.StartMultipickRandom THEN
 		MC_BR_MoveProgram_X.Name := 'MultipickRandom.st';
