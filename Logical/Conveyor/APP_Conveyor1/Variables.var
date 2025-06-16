@@ -12,8 +12,11 @@ MpAxisBasicConfig function blocks*)
 VAR
 	LastProductPosition : LREAL := 0;
 	State : ConveyorStatesEnum;
-	Reset : REFERENCE TO BOOL;
-	Start : REFERENCE TO BOOL;
+	Reset : BOOL;
+	Start : BOOL;
+	SetVelocity : REAL;
+	ProductGap : LREAL;
+	Multipick : BOOL;
 END_VAR
 (*
 Tracking function*)
@@ -21,5 +24,5 @@ VAR
 	MC_BR_TrackingFrameDelete_0 : MC_BR_TrackingFrameDelete;
 	MC_BR_TrackingFrameCreate_0 : MC_BR_TrackingFrameCreate;
 	createCnt : USINT;
-	yRange : LREAL;
+	RandomCreation : BOOL;
 END_VAR

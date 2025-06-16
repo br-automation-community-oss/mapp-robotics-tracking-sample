@@ -6,10 +6,10 @@ END_VAR
 
 VAR	
 	ParkPos				: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= UpperZLevel));
-	SynchPosUp1			: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= UpperZLevel));
-	SynchPosUp2			: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= UpperZLevel));
-	SynchPosDown1		: McPointType := (Pos:=(X:=   -100, Y:= 0, 			Z:= LowerZLevel));
-	SynchPosDown2		: McPointType := (Pos:=(X:=   100, Y:= 0, 			Z:= LowerZLevel));
+	SynchPosUp1			: McPointType := (Pos:=(X:=   -25, Y:= 0, 			Z:= UpperZLevel));
+	SynchPosUp2			: McPointType := (Pos:=(X:=   25, Y:= 0, 			Z:= UpperZLevel));
+	SynchPosDown1		: McPointType := (Pos:=(X:=   -25, Y:= 0, 			Z:= LowerZLevel));
+	SynchPosDown2		: McPointType := (Pos:=(X:=   25, Y:= 0, 			Z:= LowerZLevel));
 	StaticMoveDown		: McPointType := (Pos:=(X:=	  0, Y:= 0, 			Z:= 0));
 	MoveToPark : BOOL 	:= FALSE;
 		
@@ -30,8 +30,8 @@ PROGRAM _MAIN
 			
 		TrackObjectR(FrameIn, SynchPosUp2, 50, 50);						// track on product
 		MoveLR(SynchPosDown2);											// move to the take position
-		SetM(34);														// Scene - remove product from belt, Close the gripper here
 		WaitTime(0.04);													// Wait cause delay of gripper
+		SetM(34);														// Scene - remove product from belt, Close the gripper here
 		WaitALAP();
 		MoveLR(SynchPosUp2);											// move up to change position
 		
@@ -51,12 +51,7 @@ PROGRAM _MAIN
 		MoveLR(ParkPos);												// move to the take position
 		WaitALAP();
 		
-		IF NOT TrackingFrameSelect(FrameIn,'Infeed') THEN				// Need to stop, no objects left
-			MoveToPark := TRUE;											// force park position
-		END_IF
-			
-		IF MoveToPark THEN
-			MoveLR(ParkPos);											// move to static park position										
+		IF NOT TrackingFrameSelect(FrameIn,'Infeed') THEN				// Need to stop, no objects left								
 			WaitEndMove();												// sync interpreter and program 
 			WaitUntil(TrackingFrameSelect(FrameIn,'Infeed'));			// select new product
 		END_IF

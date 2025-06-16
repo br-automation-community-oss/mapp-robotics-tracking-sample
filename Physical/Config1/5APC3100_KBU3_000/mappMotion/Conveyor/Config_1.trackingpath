@@ -41,7 +41,7 @@
             <Property ID="MaxPosition" Value="3000" />
           </Selector>
           <Selector ID="Condition[2]" Value="AfterDesynchronization">
-            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100_1" />
+            <Property ID="AxesGroupRef" Value="gAxesGroup_D4r1100R_1" />
           </Selector>
         </Group>
       </Group>

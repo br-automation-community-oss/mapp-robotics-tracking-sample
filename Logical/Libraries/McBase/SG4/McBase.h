@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McBase 6.3.0 */
+/* McBase 6.4.0 */
 
 #ifndef _MCBASE_
 #define _MCBASE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McBase_VERSION
-#define _McBase_VERSION 6.3.0
+#define _McBase_VERSION 6.4.0
 #endif
 
 #include <bur/plctypes.h>
@@ -391,11 +391,12 @@ typedef enum McCfgTypeEnum
 	mcCFG_ASM_ADD_CTRL_PARAM = 31004,
 	mcCFG_ASM_STOP_REACTION = 31005,
 	mcCFG_ASM_SPEED_FILTER = 31006,
-	mcCFG_ASM_MAGNET_PLATE = 31007,
 	mcCFG_ASM_SCOPE_OF_ERR_REAC = 31008,
 	mcCFG_ASM_SH_IDENT_TIME = 31009,
 	mcCFG_ASM_POS_CTRL_LAG_MON = 31010,
 	mcCFG_ASM_DIVERTER = 31011,
+	mcCFG_ASM_STRATEGY = 31012,
+	mcCFG_ASM_ADJUSTMENT_MODE = 31013,
 	mcCFG_ASM_FEAT_CPLG = 31101,
 	mcCFG_ASM_FEAT_SIM_SH_DEF = 31102,
 	mcCFG_ASM_FEAT_SEC_TRACE = 31103,
@@ -421,6 +422,7 @@ typedef enum McCfgTypeEnum
 	mcCFG_MS_3AX_CNC_XYZ = 51301,
 	mcCFG_MS_3AX_CNC_XZC = 51302,
 	mcCFG_MS_3AX_CNC_XZB = 51303,
+	mcCFG_MS_4AX_CNC_XYZA = 51400,
 	mcCFG_MS_4AX_CNC_XYZB = 51401,
 	mcCFG_MS_4AX_CNC_XYZC = 51402,
 	mcCFG_MS_5AX_CNC_XYZBA = 51502,
@@ -1365,6 +1367,7 @@ typedef struct McCfgCamLstType
 
 typedef struct McPPTAcpTrakPtBarrFunOnType
 {	enum McPPTAcpTrakPtShStopPosEnum ShuttleStopPosition;
+	double BarrierStopDistance;
 } McPPTAcpTrakPtBarrFunOnType;
 
 typedef struct McPPTAcpTrakPtBarrFunType
